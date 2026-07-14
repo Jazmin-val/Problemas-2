@@ -1,1163 +1,2857 @@
-EJERCICIO 1
-Pregunta: Hacer un programa que calcule el factorial de todos los números hasta un número dado por teclado.
-Código C++:
+# EJERCICIO 1
+
+PREGUNTA
+
+1.- Suma de elementos en vector.
+
+Leer un vector de enteros y calcular la suma total.
+
+--------------------------------------------------
+ALGORITMO
+--------------------------------------------------
+
+Inicio
+
+Definir n, i, suma como entero.
+Definir vector[100] como entero.
+
+suma <- 0
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+    suma <- suma + vector[i]
+FinPara
+
+Escribir "La suma total es: ", suma
+
+Fin
+
+--------------------------------------------------
+CÓDIGO (C++)
+--------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int i;
+    int suma;
+    int vector[100];
+
+    suma = 0;
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos del vector:" << endl;
+
+    for(i = 0; i < n; i++)
+    {
+        cin >> vector[i];
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        suma = suma + vector[i];
+    }
+
+    cout << "La suma total es: " << suma << endl;
+
+    return 0;
+}
+
+--------------------------------------------------
+PRUEBA DE ESCRITORIO
+--------------------------------------------------
+
+Datos de entrada
+
+n = 5
+
+Vector = {2, 4, 6, 8, 10}
+
+| i | vector[i] | suma |
+|---|-----------|------|
+| - |     -     | 0    |
+| 0 |     2     | 2    |
+| 1 |     4     | 6    |
+| 2 |     6     | 12   |
+| 3 |     8     | 20   |
+| 4 |    10     | 30   |
+
+Salida:
+
+La suma total es: 30
+
+==================================================
+
+# EJERCICIO 2
+
+PREGUNTA
+
+2.- Promedio de notas.
+
+Ingresar notas en un vector y calcular el promedio.
+
+--------------------------------------------------
+ALGORITMO
+--------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir suma, promedio como real.
+Definir notas[100] como real.
+
+suma <- 0
+
+Escribir "Ingrese la cantidad de notas:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer notas[i]
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+    suma <- suma + notas[i]
+FinPara
+
+promedio <- suma / n
+
+Escribir "El promedio es: ", promedio
+
+Fin
+
+--------------------------------------------------
+CÓDIGO (C++)
+--------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int i;
+    float suma;
+    float promedio;
+    float notas[100];
+
+    suma = 0;
+
+    cout << "Ingrese la cantidad de notas: ";
+    cin >> n;
+
+    cout << "Ingrese las notas:" << endl;
+
+    for(i = 0; i < n; i++)
+    {
+        cin >> notas[i];
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        suma = suma + notas[i];
+    }
+
+    promedio = suma / n;
+
+    cout << "El promedio es: " << promedio << endl;
+
+    return 0;
+}
+
+--------------------------------------------------
+PRUEBA DE ESCRITORIO
+--------------------------------------------------
+
+Datos de entrada
+
+n = 4
+
+Notas = {15, 18, 14, 17}
+
+| i | notas[i] | suma |
+|---|----------|------|
+| - |    -     | 0    |
+| 0 |    15    | 15   |
+| 1 |    18    | 33   |
+| 2 |    14    | 47   |
+| 3 |    17    | 64   |
+
+promedio = 64 / 4 = 16
+
+Salida:
+
+El promedio es: 16
+
+PREGUNTA
+
+3.- Matriz identidad:
+Generar una matriz identidad de tamaño n.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i, j como entero.
+Definir matriz[100][100] como entero.
+
+Escribir "Ingrese el tamaño de la matriz:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Si i = j Entonces
+            matriz[i][j] <- 1
+        SiNo
+            matriz[i][j] <- 0
+        FinSi
+    FinPara
+FinPara
+
+Escribir "Matriz identidad:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Escribir matriz[i][j], " "
+    FinPara
+    Escribir ""
+FinPara
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
-int main() {
-int n;
-long long factorial = 1;
-cin >> n;
-for(int i = 1; i <= n; i++) {
-factorial = factorial * i;
-cout << i << "! = " << factorial << endl;
+
+int main()
+{
+    int n;
+    int i, j;
+    int matriz[100][100];
+
+    cout << "Ingrese el tamaño de la matriz: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            if(i == j)
+            {
+                matriz[i][j] = 1;
+            }
+            else
+            {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+
+    cout << "\nMatriz identidad:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cout << matriz[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
-return 0;
-}
-EJERCICIO 2
-Pregunta: Realizar un algoritmo que calcule la potencia de un número real elevado a un número real dado su numerador y denominador, sin utilizar funciones ni procedimientos.
-Código C++:
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 3
+
+Construcción de la matriz
+
+| i | j | ¿i==j? | Valor asignado |
+|---|---|---------|----------------|
+| 0 | 0 | Sí      | 1              |
+| 0 | 1 | No      | 0              |
+| 0 | 2 | No      | 0              |
+| 1 | 0 | No      | 0              |
+| 1 | 1 | Sí      | 1              |
+| 1 | 2 | No      | 0              |
+| 2 | 0 | No      | 0              |
+| 2 | 1 | No      | 0              |
+| 2 | 2 | Sí      | 1              |
+
+Salida
+
+1 0 0
+0 1 0
+0 0 1
+
+PREGUNTA
+
+4.- Máximo y mínimo:
+Encontrar el mayor y menor valor en un vector.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir vector[100] como entero.
+Definir mayor, menor como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
+FinPara
+
+mayor <- vector[0]
+menor <- vector[0]
+
+Para i <- 1 Hasta n - 1 Hacer
+
+    Si vector[i] > mayor Entonces
+        mayor <- vector[i]
+    FinSi
+
+    Si vector[i] < menor Entonces
+        menor <- vector[i]
+    FinSi
+
+FinPara
+
+Escribir "El mayor es: ", mayor
+Escribir "El menor es: ", menor
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
-#include <cmath>
 using namespace std;
-int main() {
-double base;
-int numerador, denominador;
-cin >> base;
-cin >> numerador;
-cin >> denominador;
-double potencia = 1;
-for(int i = 1; i <= numerador; i++) {
-potencia = potencia * base;
-EJERCICIO 3
-Pregunta: Construya un programa que imprima la suma de los cuadrados de los 100 primeros números naturales.
-Código C++:
+
+int main()
+{
+    int n;
+    int i;
+    int vector[100];
+    int mayor;
+    int menor;
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector[i];
+    }
+
+    mayor = vector[0];
+    menor = vector[0];
+
+    for(i = 1; i < n; i++)
+    {
+        if(vector[i] > mayor)
+        {
+            mayor = vector[i];
+        }
+
+        if(vector[i] < menor)
+        {
+            menor = vector[i];
+        }
+    }
+
+    cout << "\nEl mayor es: " << mayor << endl;
+    cout << "El menor es: " << menor << endl;
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+Vector = {8, 3, 10, 2, 7}
+
+| i | vector[i] | Mayor | Menor |
+|---|-----------|--------|--------|
+| - | 8         | 8      | 8      |
+| 1 | 3         | 8      | 3      |
+| 2 | 10        | 10     | 3      |
+| 3 | 2         | 10     | 2      |
+| 4 | 7         | 10     | 2      |
+
+Salida
+
+El mayor es: 10
+
+El menor es: 2
+
+PREGUNTA
+
+5.- Función factorial:
+Implementar una función que calcule el factorial de un número.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n como entero.
+Definir resultado como entero.
+
+Escribir "Ingrese un número:"
+Leer n
+
+resultado <- Factorial(n)
+
+Escribir "El factorial es: ", resultado
+
+Fin
+
+
+Función Factorial(n)
+
+Definir i, factorial como entero.
+
+factorial <- 1
+
+Para i <- 1 Hasta n Hacer
+    factorial <- factorial * i
+FinPara
+
+Retornar factorial
+
+FinFunción
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
-int main() {
-int suma = 0;
-for(int i = 1; i <= 100; i++) {
-suma = suma + i * i;
+
+int Factorial(int n)
+{
+    int i;
+    int factorial;
+
+    factorial = 1;
+
+    for(i = 1; i <= n; i++)
+    {
+        factorial = factorial * i;
+    }
+
+    return factorial;
 }
-cout << suma;
-return 0;
+
+int main()
+{
+    int n;
+    int resultado;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    resultado = Factorial(n);
+
+    cout << "El factorial es: " << resultado << endl;
+
+    return 0;
 }
-EJERCICIO 4
-Pregunta: Un número gemelo es aquel cuya primera mitad de dígitos es igual a la segunda mitad. Si la cantidad de dígitos es impar, no deberá tomarse en cuenta el dígito del medio. Ejemplo: 123123. Hacer un programa para contar los números gemelos de una secuencia de números de entrada.
-Código C++:
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+| i | factorial |
+|---|-----------|
+| 1 | 1         |
+| 2 | 2         |
+| 3 | 6         |
+| 4 | 24        |
+| 5 | 120       |
+
+Salida
+
+El factorial es: 120
+
+PREGUNTA
+
+6.- Ordenamiento burbuja:
+Implementar Bubble Sort en una cadena de caracteres.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir cadena como cadena.
+Definir i, j, n como entero.
+Definir aux como carácter.
+
+Escribir "Ingrese una palabra:"
+Leer cadena
+
+n <- Longitud(cadena)
+
+Para i <- 0 Hasta n - 2 Hacer
+
+    Para j <- 0 Hasta n - 2 - i Hacer
+
+        Si cadena[j] > cadena[j + 1] Entonces
+
+            aux <- cadena[j]
+            cadena[j] <- cadena[j + 1]
+            cadena[j + 1] <- aux
+
+        FinSi
+
+    FinPara
+
+FinPara
+
+Escribir "Cadena ordenada: ", cadena
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
 #include <string>
 using namespace std;
-int main() {
-int cantidad;
-int contador = 0;
-cin >> cantidad;
-for(int i = 1; i <= cantidad; i++) {
-string numero;
-cin >> numero;
-int longitud = numero.length();
-int mitad = longitud / 2;
-string primera;
-string segunda;
-if(longitud % 2 == 0) {
-primera = numero.substr(0, mitad);
-segunda = numero.substr(mitad, mitad);
-}
-else {
-primera = numero.substr(0, mitad);
-segunda = numero.substr(mitad + 1, mitad);
-}
-if(primera == segunda) {
-contador++;
-}
-}
-cout << contador;
-return 0;
-}
-EJERCICIO 5
-Pregunta: Calcule la suma y producto de fracciones, antes de realizar las operaciones es necesario que las dos fracciones estén simplificadas a su mínima expresión.
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int n1, d1, n2, d2;
-cin >> n1 >> d1;
-cin >> n2 >> d2;
-int a = n1;
-int b = d1;
-while(b != 0) {
-int r = a % b;
-a = b;
-b = r;
-}
-int mcd1 = a;
-a = n2;
-b = d2;
-while(b != 0) {
-int r = a % b;
-a = b;
-b = r;
-}
-int mcd2 = a;
-n1 = n1 / mcd1;
-d1 = d1 / mcd1;
-n2 = n2 / mcd2;
-d2 = d2 / mcd2;
-int numSuma = n1 * d2 + n2 * d1;
-int denSuma = d1 * d2;
-int numProducto = n1 * n2;
-int denProducto = d1 * d2;
-cout << "Suma = " << numSuma << "/" << denSuma << endl;
-cout << "Producto = " << numProducto << "/" << denProducto << endl;
-return 0;
-}
-EJERCICIO 6
-Pregunta: Escriba un programa que lea dos fechas dadas por un día, mes y año e indique cuál de ellas es anterior en el tiempo a la otra. El programa seguirá leyendo pares de fechas hasta que se introduzca un valor 0 como día de la primera fecha (en tal caso, no seguirá leyendo dicha fecha).
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int d1, m1, a1;
-int d2, m2, a2;
-cin >> d1;
-while(d1 != 0) {
-cin >> m1 >> a1;
-cin >> d2 >> m2 >> a2;
-if(a1 < a2)
-cout << "La primera fecha es anterior" << endl;
-else if(a1 > a2)
-cout << "La segunda fecha es anterior" << endl;
-else if(m1 < m2)
-cout << "La primera fecha es anterior" << endl;
-else if(m1 > m2)
-cout << "La segunda fecha es anterior" << endl;
-else if(d1 < d2)
-cout << "La primera fecha es anterior" << endl;
-else if(d1 > d2)
-cout << "La segunda fecha es anterior" << endl;
-else
-cout << "Las fechas son iguales" << endl;
-cin >> d1;
-}
-return 0;
-}
-EJERCICIO 7 Modificar el programa anterior para que permita un número máximo de intentos (dado por la constante MAXINTENTOS), superados los cuales terminará imprimiendo el mensaje: "Lo siento, ha perdido".
-CÓDIGO C++
-#include <iostream>
-using namespace std;
+
 int main()
 {
-// Declaración de constantes
-const int MAXINTENTOS = 5;
-// Declaración de variables
-int numeroSecreto;
-int numeroUsuario;
-int intentos;
-bool acertado;
-// Inicialización
-numeroSecreto = 7;
-intentos = 0;
-acertado = false;
-while (intentos < MAXINTENTOS && acertado == false)
-{
-cout << "Introduzca un numero: ";
-cin >> numeroUsuario;
-intentos++;
-if (numeroUsuario == numeroSecreto)
-{
-cout << "Felicidades, ha acertado" << endl;
-acertado = true;
+    string cadena;
+    int i, j;
+    int n;
+    char aux;
+
+    cout << "Ingrese una palabra: ";
+    cin >> cadena;
+
+    n = cadena.length();
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = 0; j < n - 1 - i; j++)
+        {
+            if(cadena[j] > cadena[j + 1])
+            {
+                aux = cadena[j];
+                cadena[j] = cadena[j + 1];
+                cadena[j + 1] = aux;
+            }
+        }
+    }
+
+    cout << "Cadena ordenada: " << cadena << endl;
+
+    return 0;
 }
-}
-if (acertado == false)
-{
-cout << "Lo siento, ha perdido" << endl;
-}
-return 0;
-}
-EJERCICIO 8 Modificar el programa anterior para que permita un número máximo de intentos (dado por la constante MAXINTENTOS), superados los cuales terminará imprimiendo el mensaje: "Lo siento, ha perdido".
-CODIGO C++
-#include <iostream>
-using namespace std;
-int main()
-{
-// Declaración de constantes
-const int MAXINTENTOS = 5;
-// Declaración de variables
-int numeroSecreto;
-int numeroUsuario;
-int intentos;
-bool acertado;
-// Inicialización
-numeroSecreto = 7;
-intentos = 0;
-acertado = false;
-while (intentos < MAXINTENTOS && acertado == false)
-{
-cout << "Introduzca un numero: ";
-cin >> numeroUsuario;
-intentos++;
-if (numeroUsuario == numeroSecreto)
-{
-cout << "Felicidades, ha acertado" << endl;
-acertado = true;
-}
-else
-{
-if (numeroUsuario < numeroSecreto)
-{
-cout << "El numero secreto es mayor" << endl;
-}
-else
-{
-cout << "El numero secreto es menor" << endl;
-}
-}
-}
-if (acertado == false)
-{
-cout << "Lo siento, ha perdido" << endl;
-}
-return 0;
-}
-EJERCICIO 9
-Pregunta: Modifique el programa anterior para que imprima la tabla de multiplicar completa del 1 al 10.
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-for(int i = 1; i <= 10; i++) {
-for(int j = 1; j <= 10; j++) {
-cout << i << " x " << j << " = " << i * j << endl;
-}
-cout << endl;
-}
-return 0;
-}
-EJERCICIO 10
-Pregunta: El siguiente programa calcula el factorial de un número. Modifíquelo transformando la estructura para en una estructura mientras. Luego traduzca las dos versiones del programa a un lenguaje de programación como C++.
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int n, i = 1;
-long long factorial = 1;
-cout << "Ingrese un numero: ";
-cin >> n;
-while (i <= n) {
-factorial = factorial * i;
-i++;
-}
-cout << "El factorial de " << n << " es: " << factorial << endl;
-return 0;
-}
-EJERCICIO 11
-Pregunta: A partir de un conjunto de puntos, enteros o reales, calcular el número de puntos que están situados dentro de las áreas delimitadas por las circunferencias c1 = (centro en (5,4) radio 2) y c2 = (centro en (-5,-4) radio 3), incluyendo sus puntos fronterizos.
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int n;
-int contador = 0;
-double x, y;
-cin >> n;
-for(int i = 1; i <= n; i++) {
-cin >> x >> y;
-if((x - 5)*(x - 5) + (y - 4)*(y - 4) <= 4)
-contador++;
-if((x + 5)*(x + 5) + (y + 4)*(y + 4) <= 9)
-contador++;
-}
-cout << "Cantidad de puntos: " << contador;
-return 0;
-}
-EJERCICIO 12
-Pregunta: Una compañía desea transmitir datos por teléfono pero están preocupados de que sus teléfonos estén "pinchados". Todos sus datos se transmiten como enteros de cuatro dígitos. Se le ha pedido escribir un programa que cifre los datos. Sustituya cada dígito por (dígito+7)%10. Luego intercambie el primer y tercer dígito, y el segundo y cuarto dígito. Luego imprima el entero cifrado. Escriba otro programa que recoja un entero de cuatro dígitos cifrado y lo descifre para formar el número original.
-PSEUDOCÓDIGO (Cifrar):
-Algoritmo CifrarNumero
-Definir numero Como Cadena
-Definir digitos[4] Como Entero
-Definir i Como Entero
-// Entrada
-Escribir "Ingrese un número entero de 4 dígitos: "
-Leer numero
-// Paso 1: separar dígitos
-Para i <- 0 Hasta 3 Hacer
-digitos[i] <- ConvertirANumero(numero[i])
-FinPara
-// Paso 2: aplicar transformación (dígito + 7) % 10
-Para i <- 0 Hasta 3 Hacer
-digitos[i] <- (digitos[i] + 7) % 10
-FinPara
-// Paso 3: intercambiar posiciones
-// Intercambiar primero con tercero
-temp <- digitos[0]
-digitos[0] <- digitos[2]
-digitos[2] <- temp
-// Intercambiar segundo con cuarto
-temp <- digitos[1]
-digitos[1] <- digitos[3]
-digitos[3] <- temp
-// Paso 4: formar número cifrado
-numeroCifrado <- Concatenar(digitos[0], digitos[1], digitos[2], digitos[3])
-Escribir "Número cifrado: ", numeroCifrado
-FinAlgoritmo
-PSEUDOCÓDIGO (Descifrar):
-Algoritmo DescifrarNumero
-Definir numeroCifrado Como Cadena
-Definir digitos[4] Como Entero
-Definir i Como Entero
-// Entrada
-Escribir "Ingrese un número cifrado de 4 dígitos: "
-Leer numeroCifrado
-// Paso 1: separar dígitos
-Para i <- 0 Hasta 3 Hacer
-digitos[i] <- ConvertirANumero(numeroCifrado[i])
-FinPara
-// Paso 2: revertir intercambio
-temp <- digitos[0]
-digitos[0] <- digitos[2]
-digitos[2] <- temp
-temp <- digitos[1]
-digitos[1] <- digitos[3]
-digitos[3] <- temp
-// Paso 3: revertir transformación
-Para i <- 0 Hasta 3 Hacer
-digitos[i] <- (digitos[i] + 10 - 7) % 10
-FinPara
-// Paso 4: formar número original
-numeroOriginal <- Concatenar(digitos[0], digitos[1], digitos[2], digitos[3])
-Escribir "Número original: ", numeroOriginal
-FinAlgoritmo
-Código C++ (Cifrar):
-#include <iostream>
-using namespace std;
-int main() {
-int numero;
-cin >> numero;
-int d1 = numero / 1000;
-int d2 = (numero / 100) % 10;
-int d3 = (numero / 10) % 10;
-int d4 = numero % 10;
-d1 = (d1 + 7) % 10;
-d2 = (d2 + 7) % 10;
-d3 = (d3 + 7) % 10;
-d4 = (d4 + 7) % 10;
-int aux;
-aux = d1;
-d1 = d3;
-d3 = aux;
-aux = d2;
-d2 = d4;
-d4 = aux;
-cout << d1 << d2 << d3 << d4;
-return 0;
-}
-Código C++ (Descifrar):
-#include <iostream>
-using namespace std;
-int main() {
-int numero;
-cin >> numero;
-int d1 = numero / 1000;
-int d2 = (numero / 100) % 10;
-int d3 = (numero / 10) % 10;
-int d4 = numero % 10;
-int aux;
-aux = d1;
-d1 = d3;
-d3 = aux;
-aux = d2;
-d2 = d4;
-d4 = aux;
-if(d1 < 7) d1 += 10;
-if(d2 < 7) d2 += 10;
-if(d3 < 7) d3 += 10;
-if(d4 < 7) d4 += 10;
-d1 -= 7;
-d2 -= 7;
-d3 -= 7;
-d4 -= 7;
-cout << d1 << d2 << d3 << d4;
-return 0;
-}
-EJERCICIO 13
-Pregunta: Se desea calcular independientemente la suma de los números pares e impares comprendidos entre 1 y 200.
-PSEUDOCÓDIGO:
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+cadena = "dcba"
+
+| Pasada | Estado de la cadena |
+|---------|---------------------|
+| Inicial | d c b a             |
+| 1       | c b a d             |
+| 2       | b a c d             |
+| 3       | a b c d             |
+
+Salida
+
+Cadena ordenada: abcd
+
+PREGUNTA
+
+7.- Ordenamiento por inserción:
+Implementar Insertion Sort en un vector de enteros.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
 Inicio
-Definir i, sumaPares, sumaImpares Como Entero
-sumaPares = 0
-sumaImpares = 0
-Para i = 1 Hasta 200 Hacer
-Si i MOD 2 = 0 Entonces
-sumaPares = sumaPares + i
-Sino
-sumaImpares = sumaImpares + i
-FinSi
-FinPara
-Escribir "La suma de los números pares entre 1 y 200 es: ", sumaPares
-Escribir "La suma de los números impares entre 1 y 200 es: ", sumaImpares
-Fin
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int sumaPares = 0;
-int sumaImpares = 0;
-for(int i = 1; i <= 200; i++) {
-if(i % 2 == 0)
-sumaPares += i;
-else
-sumaImpares += i;
-}
-cout << "Suma pares = " << sumaPares << endl;
-cout << "Suma impares = " << sumaImpares;
-return 0;
-}
-EJERCICIO 14
-Pregunta: Calcular la suma de los cuadrados de los 100 primeros números naturales.
-PSEUDOCÓDIGO:
-Inicio
-Definir i, suma Como Entero
-suma = 0
-Para i = 1 Hasta 100 Hacer
-suma = suma + i * i
-FinPara
-Escribir suma
-Fin
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int suma = 0;
-for(int i = 1; i <= 100; i++) {
-suma = suma + i * i;
-}
-cout << suma;
-return 0;
-}
-EJERCICIO 15
-Pregunta:
-Escribir un algoritmo que, dados dos intervalos cerrados [a,b] y [c,d] de la recta real, devuelva la intersección de ambos intervalos.
-PSEUDOCÓDIGO
-Inicio
-Definir a,b,c,d Como Real
-Definir inicio, fin Como Real
-Leer a,b
-Leer c,d
-Si a > c Entonces
-inicio = a
-Sino
-inicio = c
-FinSi
-Si b < d Entonces
-fin = b
-Sino
-fin = d
-FinSi
-Si inicio <= fin Entonces
-Escribir "La interseccion es [", inicio, ",", fin, "]"
-Sino
-Escribir "No existe interseccion"
-FinSi
-Fin
-Caso 1:
-● Intervalo 1: [2, 6]
-● Intervalo 2: [4, 8]
-Cálculo:
-● inicio = max(2,4) = 4
-● fin = min(6,8) = 6
-● Como inicio ≤ fin → intersección = [4,6]
-Caso 2:
-● Intervalo 1: [1, 3]
-● Intervalo 2: [5, 7]
-Cálculo:
-● inicio = max(1,5) = 5
-● fin = min(3,7) = 3
-● Como inicio > fi n → no hay intersección.
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-double a, b, c, d;
-double inicio, fin;
-cin >> a >> b;
-cin >> c >> d;
-if(a > c)
-inicio = a;
-else
-inicio = c;
-if(b < d)
-fin = b;
-else
-fin = d;
-if(inicio <= fin)
-cout << "La interseccion es [" << inicio << "," << fin << "]";
-else
-cout << "No existe interseccion";
-return 0;
-}
-EJERCICIO 16
-Determine el numero de dígitos de un numero positivo N ingresado por teclado.
-Ejemplo: 999 tiene tres dígitos 1222 tiene 4 dígitos.
-PSEUDOCÓDIGO
-Inicio
-Definir N, temp, contador Como Entero
-Escribir "Por favor, ingrese un número entero positivo: "
-Leer N
-Si N <= 0 Entonces
-Escribir "Error: El número debe ser mayor que cero."
-Sino
-contador = 0
-temp = N
-Mientras temp > 0 Hacer
-temp = temp DIV 10
-contador = contador + 1
-FinMientras
-Escribir "El número ", N, " tiene ", contador, " dígitos."
-FinSi
-Fin
-EJERCICIO 17
-Hacer un algoritmo y un programa en C++ para evaluar la función:
-aX^4 - bX^3 + 2*cX^2 - X + d
-Donde a, b, c y d son ingresados por teclado y los valores de X son enteros [8,100]. Mostrar todos los f(x).
-PSEUDOCÓDIGO
-Inicio
-Definir a,b,c,d Como Entero
-Definir x Como Entero
-Definir fx Como Entero Largo
-Leer a,b,c,d
-Para x = 8 Hasta 100 Hacer
-fx = a*x*x*x*x - b*x*x*x + 2*c*x*x - x + d
-Escribir "f(",x,") = ",fx
-FinPara
-Fin
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-long long a,b,c,d;
-long long fx;
-cin >> a >> b >> c >> d;
-for(int x = 8; x <= 100; x++) {
-fx = a*x*x*x*x - b*x*x*x + 2*c*x*x - x + d;
-cout << "f(" << x << ") = " << fx << endl;
-}
-return 0;
-}
-EJERCICIO 18
-Escribir un algoritmo en pseudocódigo que saque por pantalla el nombre y número de días del mes que pida el usuario por teclado en forma de número natural del 1 al 12. Usar sólo el tipo predefinido de los naturales. Si introduce un número fuera del rango 1..12, sacar el mensaje "Mes inválido". Utilizar la sentencia CASO.
-Pseudocódigo:
-Inicio
-Definir mes Como Entero
-Leer mes
-Segun mes Hacer
-Caso 1: Escribir "Enero - 31 dias"
-Caso 2: Escribir "Febrero - 28 dias"
-Caso 3: Escribir "Marzo - 31 dias"
-Caso 4: Escribir "Abril - 30 dias"
-Caso 5: Escribir "Mayo - 31 dias"
-Caso 6: Escribir "Junio - 30 dias"
-Caso 7: Escribir "Julio - 31 dias"
-Caso 8: Escribir "Agosto - 31 dias"
-Caso 9: Escribir "Septiembre - 30 dias"
-Caso 10: Escribir "Octubre - 31 dias"
-Caso 11: Escribir "Noviembre - 30 dias"
-Caso 12: Escribir "Diciembre - 31 dias"
-De Otro Modo: Escribir "Mes invalido"
-FinSegun
-Fin
-Código C++:
-#include <iostream>
-using namespace std;
-int main() {
-int mes;
-cin >> mes;
-switch(mes) {
-case 1:
-cout << "Enero - 31 dias";
-break;
-case 2:
-cout << "Febrero - 28 dias";
-break;
-case 3:
-cout << "Marzo - 31 dias";
-break;
-case 4:
-cout << "Abril - 30 dias";
-break;
-case 5:
-cout << "Mayo - 31 dias";
-break;
-case 6:
-cout << "Junio - 30 dias";
-break;
-case 7:
-cout << "Julio - 31 dias";
-break;
-case 8:
-cout << "Agosto - 31 dias";
-break;
-case 9:
-cout << "Septiembre - 30 dias";
-break;
-case 10:
-cout << "Octubre - 31 dias";
-break;
-case 11:
-cout << "Noviembre - 30 dias";
-break;
-case 12:
-cout << "Diciembre - 31 dias";
-break;
-default:
-cout << "Mes invalido";
-}
-return 0;
-}
-EJERCICIO 19
-Pregunta:
-Trazar la ejecución del siguiente algoritmo, y hallar el resultado producido cuando los datos de entrada son: 49 y 70.
-ALGORITMO Divisor VARIABLES
-Z primero, segundo INICIO
-Leer (primero, segundo) MIENTRAS <> segundo HACER
-SI primero > segundo ENTONCES primero = primero - segundo
-SINO
-segundo = segundo - primero FINSI
-FINMIENTRAS
-Escribir (primero) FIN Divisor
-Respuesta:
-Iteración
-primero
-segundo
-Operación realizada
-Inicial
-49
-70
-Lectura de datos
-1
-49
-21
-70 − 49 = 21
-2
-28
-21
-49 − 21 = 28
-3
-7
-21
-28 − 21 = 7
-4
-7
-14
-21 − 7 = 14
-5
-7
-7
-14 − 7 = 7
-PREGUNTA 20:
-Pasar a binario un número decimal que se ha leído por teclado.
-ALGORITMO:
-VARIABLES
-Entero n
-Entero residuo
-Entero binario
-Entero posicion
-INICIO
-Escribir "Ingrese un número decimal:"
+
+Definir n, i, j, clave como entero.
+Definir vector[100] como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
 Leer n
-binario <- 0
-posicion <- 1
-MIENTRAS n > 0 HACER
-residuo <- n - (n / 2) * 2
-binario <- binario + (residuo * posicion)
-posicion <- posicion * 10
-n <- n / 2
-FINMIENTRAS
-Escribir "El número en binario es: ", binario
-FIN
-.Mostrar el número binario.
-CÓDIGO:
-#include <iostream>
-using namespace std;
-int main() {
-int n;
-long long binario = 0;
-long long posicion = 1;
-cout << "Ingrese un numero decimal: ";
-cin >> n;
-while (n > 0) {
-binario = binario + (n % 2) * posicion;
-posicion = posicion * 10;
-n = n / 2;
-}
-cout << "Numero en binario: " << binario;
-return 0;
-}
-21. INVERTIR LAS CIFRAS DE UN NÚMERO
-PREGUNTA:
-Elabore un programa que lea un número entero y escriba el número resultante de invertir sus cifras.
-ALGORITMO: Invertir las cifras de un número
-Definir numero; invertido; dígito Como Entero
-Escribir "Ingrese un numero entero: "
-Leer numero
-invertido = 0
-Mientras numero > 0 Hacer
-digito = numero MOD 10
-invertido = (invertido * 10) + digito
-numero = numero DIV 10
-FinMientras
-Escribir "Numero invertido: ",
-Escribir invertido
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
+FinPara
+
+Para i <- 1 Hasta n - 1 Hacer
+
+    clave <- vector[i]
+    j <- i - 1
+
+    Mientras j >= 0 Y vector[j] > clave Hacer
+        vector[j + 1] <- vector[j]
+        j <- j - 1
+    FinMientras
+
+    vector[j + 1] <- clave
+
+FinPara
+
+Escribir "Vector ordenado:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector[i], " "
+FinPara
+
 Fin
-CÓDIGO:
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
+
 int main()
 {
-// Declaración de variables
-int numero;
-int invertido;
-int digito;
-// Entrada de datos
-cout << "Ingrese un numero entero: ";
-cin >> numero;
-// Inicialización
-invertido = 0;
-// Se repite mientras el numero tenga digitos
-while (numero > 0)
-{
-// Obtener el ultimo digito con el residuo
-digito = numero % 10;
-// Agregar el digito al numero invertido
-invertido = invertido * 10 + digito;
-// Eliminar el ultimo digito del numero original
-numero = numero / 10;
+    int n;
+    int i, j;
+    int clave;
+    int vector[100];
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector[i];
+    }
+
+    for(i = 1; i < n; i++)
+    {
+        clave = vector[i];
+        j = i - 1;
+
+        while(j >= 0 && vector[j] > clave)
+        {
+            vector[j + 1] = vector[j];
+            j--;
+        }
+
+        vector[j + 1] = clave;
+    }
+
+    cout << "\nVector ordenado:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
 }
-// Mostrar resultado
-cout << "Numero invertido: " << invertido << endl;
-return 0;
-}
-22. PIRÁMIDE NUMÉRICA
-PREGUNTA:
-Elabore un programa C++ que lea por teclado un número n entero positivo y presente por pantalla una pirámide de n filas según el esquema dado.
-1
-2 3 2
-3 4 5 4 3
-4 5 6 7 6 5 4
-5 6 7 8 9 8 7 6 5
-6 7 8 9 0 1 0 9 8 7 6
-7 8 9 0 1 2 3 2 1 0 9 8 7
-8 9 0 1 2 3 4 5 4 3 2 1 0 9 8
-9 0 1 2 3 4 5 6 7 6 5 4 3 2 1 0 9
-0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1 0
-ALGORITMO:
-VARIABLES
-Entero n
-Entero fila
-Entero i
-Entero numero
-INICIO
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+Vector = {5, 3, 4, 1, 2}
+
+| Iteración | Estado del vector      |
+|-----------|------------------------|
+| Inicial   | 5 3 4 1 2              |
+| i = 1     | 3 5 4 1 2              |
+| i = 2     | 3 4 5 1 2              |
+| i = 3     | 1 3 4 5 2              |
+| i = 4     | 1 2 3 4 5              |
+
+Salida
+
+Vector ordenado:
+
+1 2 3 4 5
+
+PREGUNTA
+
+8.- Transposición de matriz:
+Calcular la matriz transpuesta de una matriz n x m.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, m, i, j como entero.
+Definir matriz[100][100] como entero.
+Definir transpuesta[100][100] como entero.
+
 Escribir "Ingrese el número de filas:"
 Leer n
-fila <- 1
-MIENTRAS fila <= n HACER
-i <- 0
-MIENTRAS i < fila HACER
-numero <- (fila + i) - ((fila + i) / 10) * 10
-Escribir numero, " " SIN SALTAR
-i <- i + 1
-FINMIENTRAS
-i <- fila - 2
-MIENTRAS i >= 0 HACER
-numero <- (fila + i) - ((fila + i) / 10) * 10
-Escribir numero, " " SIN SALTAR
-i <- i - 1
-FINMIENTRAS
-Escribir ""
-fila <- fila + 1
-FINMIENTRAS
-FIN
-CÓDIGO C++:
+
+Escribir "Ingrese el número de columnas:"
+Leer m
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta m - 1 Hacer
+        Leer matriz[i][j]
+    FinPara
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta m - 1 Hacer
+        transpuesta[j][i] <- matriz[i][j]
+    FinPara
+FinPara
+
+Escribir "Matriz transpuesta:"
+
+Para i <- 0 Hasta m - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Escribir transpuesta[i][j], " "
+    FinPara
+    Escribir ""
+FinPara
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
-int main() {
-int n;
-cout << "Ingrese el numero de filas: ";
-cin >> n;
-int fila = 1;
-while (fila <= n) {
-int i = 0;
-while (i < fila) {
-cout << (fila + i) % 10 << " ";
-i++;
+
+int main()
+{
+    int n;
+    int m;
+    int i, j;
+    int matriz[100][100];
+    int transpuesta[100][100];
+
+    cout << "Ingrese el numero de filas: ";
+    cin >> n;
+
+    cout << "Ingrese el numero de columnas: ";
+    cin >> m;
+
+    cout << "Ingrese los elementos de la matriz:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < m; j++)
+        {
+            cin >> matriz[i][j];
+        }
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < m; j++)
+        {
+            transpuesta[j][i] = matriz[i][j];
+        }
+    }
+
+    cout << "\nMatriz transpuesta:\n";
+
+    for(i = 0; i < m; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cout << transpuesta[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
-i = fila - 2;
-while (i >= 0) {
-cout << (fila + i) % 10 << " ";
-i--;
-}
-cout << endl;
-fila++;
-}
-return 0;
-}
-23.- La función trigonométrica seno para un ángulo x (en radianes) se calcula con la siguiente serie: x – x3 / 3! + x5 / 5! – x7 / 7! + . . .
-a) escriba un método de encabezamiento double seno(double x, int n) que calcule el seno de un ángulo x, usando los primeros n términos de la serie anterior.
-b) Utilice el método anterior en un programa que muestre la tabla siguiente:
-Angulo
-Tangente
-0
-0
-π/8
-...
-π/4
-...
-...
-...
-2π
-...
-Notas.
-● Recuerde que tangente(x) es seno(x)/coseno(x) y coseno(x)2+seno(x)2=1
-● En caso que coseno(x) sea cero, se debe escribir tangente “infinito”
-● Calcule la función seno con 10 términos (n=10)
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 2
+
+m = 3
+
+Matriz
+
+|   | C0 | C1 | C2 |
+|---|----|----|----|
+| F0 | 1 | 2 | 3 |
+| F1 | 4 | 5 | 6 |
+
+Transposición
+
+|   | C0 | C1 |
+|---|----|----|
+| F0 | 1 | 4 |
+| F1 | 2 | 5 |
+| F2 | 3 | 6 |
+
+Salida
+
+1 4
+
+2 5
+
+3 6
+
+PREGUNTA
+
+9.- Multiplicación de matrices:
+Multiplicar dos matrices cuadradas.
+
+------------------------------------------------------------
 ALGORITMO
-VARIABLES
-Real PI, x, sen, coseno, termino, suma
-Cadena angulos[17]
-Entero i, j
-INICIO
-PI <- 3.141592653589793
-angulos[0] <- "0"
-angulos[1] <- "π/8"
-angulos[2] <- "π/4"
-angulos[3] <- "3π/8"
-angulos[4] <- "π/2"
-angulos[5] <- "5π/8"
-angulos[6] <- "3π/4"
-angulos[7] <- "7π/8"
-angulos[8] <- "π"
-angulos[9] <- "9π/8"
-angulos[10] <- "5π/4"
-angulos[11] <- "11π/8"
-angulos[12] <- "3π/2"
-angulos[13] <- "13π/8"
-angulos[14] <- "7π/4"
-angulos[15] <- "15π/8"
-angulos[16] <- "2π"
-Escribir "ANGULO", " ", "TANGENTE"
-PARA i <- 0 HASTA 16 HACER
-x <- i * PI / 8
-// Calcular el seno (10 términos)
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i, j, k como entero.
+Definir matrizA[100][100] como entero.
+Definir matrizB[100][100] como entero.
+Definir resultado[100][100] como entero.
+
+Escribir "Ingrese el tamaño de las matrices:"
+Leer n
+
+Escribir "Ingrese los elementos de la primera matriz:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Leer matrizA[i][j]
+    FinPara
+FinPara
+
+Escribir "Ingrese los elementos de la segunda matriz:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Leer matrizB[i][j]
+    FinPara
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+
+    Para j <- 0 Hasta n - 1 Hacer
+
+        resultado[i][j] <- 0
+
+        Para k <- 0 Hasta n - 1 Hacer
+            resultado[i][j] <- resultado[i][j] + matrizA[i][k] * matrizB[k][j]
+        FinPara
+
+    FinPara
+
+FinPara
+
+Escribir "Matriz resultado:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Escribir resultado[i][j], " "
+    FinPara
+    Escribir ""
+FinPara
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    int i, j, k;
+    int matrizA[100][100];
+    int matrizB[100][100];
+    int resultado[100][100];
+
+    cout << "Ingrese el tamaño de las matrices: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos de la primera matriz:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cin >> matrizA[i][j];
+        }
+    }
+
+    cout << "Ingrese los elementos de la segunda matriz:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cin >> matrizB[i][j];
+        }
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            resultado[i][j] = 0;
+
+            for(k = 0; k < n; k++)
+            {
+                resultado[i][j] += matrizA[i][k] * matrizB[k][j];
+            }
+        }
+    }
+
+    cout << "\nMatriz resultado:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cout << resultado[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 2
+
+Matriz A
+
+|   | C0 | C1 |
+|---|----|----|
+| F0 | 1 | 2 |
+| F1 | 3 | 4 |
+
+Matriz B
+
+|   | C0 | C1 |
+|---|----|----|
+| F0 | 5 | 6 |
+| F1 | 7 | 8 |
+
+Cálculo
+
+| Resultado | Operación | Valor |
+|-----------|-----------|-------|
+| R[0][0] | (1×5)+(2×7) | 19 |
+| R[0][1] | (1×6)+(2×8) | 22 |
+| R[1][0] | (3×5)+(4×7) | 43 |
+| R[1][1] | (3×6)+(4×8) | 50 |
+
+Salida
+
+19 22
+
+43 50
+
+
+PREGUNTA
+
+11.- Funciones con parámetros por referencia:
+Implementar una función que intercambie dos valores usando referencias.
+
+ALGORITMO: Intercambiar dos valores usando parámetros por referencia
+
+Función INTERCAMBIAR(Referencia numero1, Referencia numero2)
+
+Definir auxiliar Como Entero
+
+auxiliar = numero1
+numero1 = numero2
+numero2 = auxiliar
+
+FinFunción
+
+Proceso Principal
+
+Definir numero1, numero2 Como Entero
+
+Escribir "Ingrese el primer numero: "
+Leer numero1
+
+Escribir "Ingrese el segundo numero: "
+Leer numero2
+
+Escribir "Antes del intercambio"
+Escribir "Numero 1: ", numero1
+Escribir "Numero 2: ", numero2
+
+INTERCAMBIAR(numero1, numero2)
+
+Escribir "Despues del intercambio"
+Escribir "Numero 1: ", numero1
+Escribir "Numero 2: ", numero2
+
+FinProceso 
+
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+// Funcion que intercambia dos numeros
+void INTERCAMBIAR(int &numero1, int &numero2)
+{
+    // Declaracion de variables
+    int auxiliar;
+
+    // Guardar el valor del primer numero
+    auxiliar = numero1;
+
+    // Copiar el segundo numero al primero
+    numero1 = numero2;
+
+    // Colocar el valor guardado en el segundo numero
+    numero2 = auxiliar;
+}
+
+int main()
+{
+    // Declaracion de variables
+    int numero1;
+    int numero2;
+
+    // Solicitar datos
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    // Mostrar los valores antes del intercambio
+    cout << "\nAntes del intercambio" << endl;
+    cout << "Numero 1: " << numero1 << endl;
+    cout << "Numero 2: " << numero2 << endl;
+
+    // Llamar a la funcion
+    INTERCAMBIAR(numero1, numero2);
+
+    // Mostrar los valores despues del intercambio
+    cout << "\nDespues del intercambio" << endl;
+    cout << "Numero 1: " << numero1 << endl;
+    cout << "Numero 2: " << numero2 << endl;
+
+    return 0;
+}
+
+
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+Entrada
+
+Número 1 = 8
+
+Número 2 = 15
+
+| Paso | Instrucción | numero1 | numero2 | auxiliar |
+|------|-------------|:-------:|:-------:|:--------:|
+| 1 | Valores ingresados | 8 | 15 | - |
+| 2 | auxiliar = numero1 | 8 | 15 | 8 |
+| 3 | numero1 = numero2 | 15 | 15 | 8 |
+| 4 | numero2 = auxiliar | 15 | 8 | 8 |
+| 5 | Resultado final | 15 | 8 | 8 |
+
+Salida
+
+Número 1: 15
+
+Número 2: 8
+
+
+
+PREGUNTA
+
+12.- Archivo de estudiantes:
+Leer nombres y notas desde un archivo y calcular el promedio general.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir nombre como cadena.
+Definir nota, suma, promedio como real.
+Definir cantidad como entero.
+Definir archivo como archivo de lectura.
+
 suma <- 0
-termino <- x
-PARA j <- 1 HASTA 10 HACER
-suma <- suma + termino
-termino <- -termino * x * x / ((2 * j) * (2 * j + 1))
-FIN PARA
-sen <- suma
-coseno <- COS(x)
-Escribir angulos[i], " "
-SI ABS(coseno) < 0.000001 ENTONCES
-Escribir "Infinito"
-SINO
-Escribir sen / coseno
-FIN SI
-FIN PARA
-FIN
-CÓDIGO C++
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-using namespace std;
-const double PI = 3.14159265358979323846;
-// Método para calcular el seno usando la serie de Taylor
-double seno(double x, int n)
-{
-double suma = 0;
-double termino = x;
-for (int i = 1; i <= n; i++)
-{
-suma += termino;
-termino = -termino * x * x / ((2 * i) * (2 * i + 1));
-}
-return suma;
-}
-int main()
-{
-string angulos[] = {
-"0", "π/8", "π/4", "3π/8", "π/2",
-"5π/8", "3π/4", "7π/8", "π",
-"9π/8", "5π/4", "11π/8", "3π/2",
-"13π/8", "7π/4", "15π/8", "2π"
-};
-cout << fixed << setprecision(6);
-cout << "ANGULO\t\tTANGENTE" << endl;
-for (int i = 0; i <= 16; i++)
-{
-double x = i * PI / 8.0;
-double sen = seno(x, 10);
-double coseno = cos(x); // <-- ya no hay conflicto
-cout << angulos[i] << "\t\t";
-if (fabs(coseno) < 1e-9)
-cout << "Infinito";
-else
-cout << sen / coseno;
-cout << endl;
-}
-return 0;
-}
-68.- Calcular el número e, considerando los 20 primeros términos: e = 1 + 1 + 1 + 1 + ...
-ALGORITMO
-VARIABLES
-Real e
-Real factorial
-Entero i
-INICIO
-e <- 1
-factorial <- 1
-PARA i <- 1 HASTA 19 HACER
-factorial <- factorial * i
-e <- e + (1 / factorial)
-FIN PARA
-Escribir "El valor aproximado de e es: ", e
-FIN
-CÓDIGO C++
-#include <iostream>
-#include <iomanip>
-using namespace std;
-int main()
-{
-double e = 1.0;
-double factorial = 1.0;
-for (int i = 1; i <= 19; i++)
-{
-factorial *= i;
-e += 1.0 / factorial;
-}
-cout << fixed << setprecision(15);
-cout << "El valor aproximado de e es: " << e << endl;
-return 0;
-}
-71.- La función de probabilidad binomial es
-P(K) =
-Donde
-N! K!(N – K)!
-pKqN-K
-p + q = 1 para 0 < p < 1
-Escriba un programa que acepte los valores de p y N e imprima una tabla de probabilidades como K varíe desde 0 hasta N.
-ALGORITMO
-VARIABLES
-Entero N, K, i
-Real p, q
-Real factorialN
-Real factorialK
-Real factorialNK
-Real combinacion
-Real probabilidad
-INICIO
-Escribir "Ingrese N:"
-Leer N
-Escribir "Ingrese p:"
-Leer p
-q <- 1 - p
-factorialN <- 1
-PARA i <- 1 HASTA N HACER
-factorialN <- factorialN * i
-FINPARA
-Escribir "K", " ", "P(K)"
-PARA K <- 0 HASTA N HACER
-factorialK <- 1
-PARA i <- 1 HASTA K HACER
-factorialK <- factorialK * i
-FINPARA
-factorialNK <- 1
-PARA i <- 1 HASTA (N-K) HACER
-factorialNK <- factorialNK * i
-FINPARA
-combinacion <- factorialN / (factorialK * factorialNK)
-probabilidad <- combinacion * p^K * q^(N-K)
-Escribir K, " ", probabilidad
-FINPARA
-FIN
-CÓDIGO C++
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-using namespace std;
-int main()
-{
-int N;
-int K;
-int i;
-double p;
-double q;
-double factorialN;
-double factorialK;
-double factorialNK;
-double combinacion;
-double probabilidad;
-cout << "Ingrese N: ";
-cin >> N;
-cout << "Ingrese p: ";
-cin >> p;
-q = 1 - p;
-factorialN = 1;
-for(i = 1; i <= N; i++)
-{
-factorialN = factorialN * i;
-}
-cout << fixed << setprecision(6);
-cout << endl;
-cout << "K\tP(K)" << endl;
-for(K = 0; K <= N; K++)
-{
-factorialK = 1;
-for(i = 1; i <= K; i++)
-{
-factorialK = factorialK * i;
-}
-factorialNK = 1;
-for(i = 1; i <= (N - K); i++)
-{
-factorialNK = factorialNK * i;
-}
-combinacion = factorialN / (factorialK * factorialNK);
-probabilidad = combinacion * pow(p, K) * pow(q, N - K);
-cout << K << "\t" << probabilidad << endl;
-}
-return 0;
-}
-24.- La secuencia de los números Fibonacci empieza con los enteros: 1, 1, 2, 3, 5, 8, 13, 21, ……. donde cada número después de los primeros dos es la suma de los dos números anteriores. Escribir un algoritmo que pida el ingreso de un número natural primo y determine si es un número Fibonacci. Si lo es imprima la terna del Fibonacci anterior al número, el número y el siguiente número Fibonacci.
-Algoritmo
-Definir num, i, cont Como Entero
-Definir f1, f2, f3 Como Entero
-Definir esPrimo Como Logico
-Escribir "Ingrese un numero natural primo:"
-Leer num
-esPrimo = Verdadero
-Si num < 2 Entonces
-esPrimo = Falso
-SiNo
-Para i = 2 Hasta num - 1 Hacer
-Si num MOD i = 0 Entonces
-esPrimo = Falso
-FinSi
-FinPara
-FinSi
-Si esPrimo = Falso Entonces
-Escribir "El numero no es primo"
-SiNo
-f1 = 1
-f2 = 1
-Mientras f2 < num Hacer
-f3 = f1 + f2
-f1 = f2
-f2 = f3
+cantidad <- 0
+
+Abrir archivo "estudiantes.txt"
+
+Mientras no sea fin de archivo Hacer
+
+    Leer nombre, nota
+
+    suma <- suma + nota
+    cantidad <- cantidad + 1
+
 FinMientras
-Si f2 = num Entonces
-f3 = f1 + f2
-Escribir "El numero es Fibonacci"
-Escribir "Terna: ", f1, ", ", f2, ", ", f3
-SiNo
-Escribir "El numero no es Fibonacci"
-FinSi
-FinSi
-FinAlgoritmo
-CODIGO C++
+
+Cerrar archivo
+
+promedio <- suma / cantidad
+
+Escribir "Promedio general: ", promedio
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
+#include <fstream>
+#include <string>
+
 using namespace std;
-int main() {
-int num, i;
-bool esPrimo = true;
-cout << "Ingrese un numero natural primo: ";
-cin >> num;
-if (num < 2) {
-esPrimo = false;
-} else {
-for (i = 2; i < num; i++) {
-if (num % i == 0) {
-esPrimo = false;
+
+int main()
+{
+    ifstream archivo;
+
+    string nombre;
+    float nota;
+    float suma;
+    float promedio;
+    int cantidad;
+
+    suma = 0;
+    cantidad = 0;
+
+    archivo.open("estudiantes.txt");
+
+    if(!archivo)
+    {
+        cout << "No se pudo abrir el archivo." << endl;
+        return 1;
+    }
+
+    while(archivo >> nombre >> nota)
+    {
+        suma = suma + nota;
+        cantidad++;
+    }
+
+    archivo.close();
+
+    promedio = suma / cantidad;
+
+    cout << "Promedio general: " << promedio << endl;
+
+    return 0;
 }
+
+------------------------------------------------------------
+ARCHIVO estudiantes.txt
+------------------------------------------------------------
+
+Ana 18
+Luis 15
+Carlos 17
+Maria 20
+Pedro 16
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+| Estudiante | Nota | Suma | Cantidad |
+|------------|-----:|-----:|---------:|
+| Ana | 18 | 18 | 1 |
+| Luis | 15 | 33 | 2 |
+| Carlos | 17 | 50 | 3 |
+| Maria | 20 | 70 | 4 |
+| Pedro | 16 | 86 | 5 |
+
+Promedio
+
+86 / 5 = 17.2
+
+Salida
+
+Promedio general: 17.2
+
+PREGUNTA
+
+13.- Archivo de productos:
+Leer productos y precios desde un archivo y aplicar un descuento.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir nombre como cadena.
+Definir precio, descuento como real.
+Definir archivo como archivo de lectura.
+
+descuento <- 0.10
+
+Abrir archivo "productos.txt"
+
+Escribir "Productos con descuento:"
+
+Mientras no sea fin de archivo Hacer
+
+    Leer nombre, precio
+
+    precio <- precio - (precio * descuento)
+
+    Escribir nombre, precio
+
+FinMientras
+
+Cerrar archivo
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    ifstream archivo;
+
+    string nombre;
+    float precio;
+    float descuento;
+
+    descuento = 0.10;
+
+    archivo.open("productos.txt");
+
+    if(!archivo)
+    {
+        cout << "No se pudo abrir el archivo." << endl;
+        return 1;
+    }
+
+    cout << "Productos con descuento:\n\n";
+
+    while(archivo >> nombre >> precio)
+    {
+        precio = precio - (precio * descuento);
+
+        cout << nombre << "  " << precio << endl;
+    }
+
+    archivo.close();
+
+    return 0;
 }
-}
-if (!esPrimo) {
-cout << "El numero no es primo";
-} else {
-int f1 = 1, f2 = 1, f3;
-while (f2 < num) {
-f3 = f1 + f2;
-f1 = f2;
-f2 = f3;
-}
-if (f2 == num) {
-f3 = f1 + f2;
-cout << "El numero es Fibonacci" << endl;
-cout << "Terna: " << f1 << " " << f2 << " " << f3;
-} else {
-cout << "El numero no es Fibonacci";
-}
-}
-return 0;
-}
-25.- La media armónica de n números enteros está definida por:
-X h = n
-Y la media geométrica por:
-Σ(1/ xi )
-i
-Xg =
-Hacer un algoritmo para calcular la diferencia entre la media armónica y la media geométrica de M números enteros positivos.
-Algoritmo
-inicio
-Definir cantidadNumeros, contador, numero Como Entero
-Definir sumaReciprocos, productoNumeros Como Real
-Definir mediaArmonica, mediaGeometrica, diferenciaMedias Como Real
-Escribir "Ingrese la cantidad de numeros positivos:"
-Leer cantidadNumeros
-sumaReciprocos = 0
-productoNumeros = 1
-Para contador = 1 Hasta cantidadNumeros Hacer
-Escribir "Ingrese el numero ", contador, ":"
-Leer numero
-sumaReciprocos = sumaReciprocos + (1 / numero)
-productoNumeros = productoNumeros * numero
+
+------------------------------------------------------------
+ARCHIVO productos.txt
+------------------------------------------------------------
+
+Laptop 3500
+Mouse 80
+Teclado 150
+Monitor 950
+Impresora 700
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Descuento aplicado: 10%
+
+| Producto | Precio Original | Precio Final |
+|----------|----------------:|-------------:|
+| Laptop | 3500 | 3150 |
+| Mouse | 80 | 72 |
+| Teclado | 150 | 135 |
+| Monitor | 950 | 855 |
+| Impresora | 700 | 630 |
+
+Salida
+
+Productos con descuento:
+
+Laptop 3150
+
+Mouse 72
+
+Teclado 135
+
+Monitor 855
+
+Impresora 630
+
+PREGUNTA
+
+14.- Ordenamiento con funciones:
+Crear una función que ordene un vector y otra que lo imprima.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir vector[100] como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
 FinPara
-mediaArmonica = cantidadNumeros / sumaReciprocos
-mediaGeometrica = productoNumeros ^ (1 / cantidadNumeros)
-diferenciaMedias = mediaArmonica - mediaGeometrica
-Escribir "Media armonica: ", mediaArmonica
-Escribir "Media geometrica: ", mediaGeometrica
-Escribir "Diferencia entre medias: ", diferenciaMedias
-FinAlgoritmo
-CODIGO C++
+
+Llamar Ordenar(vector, n)
+
+Llamar Imprimir(vector, n)
+
+Fin
+
+
+Función Ordenar(vector, n)
+
+Definir i, j, auxiliar como entero.
+
+Para i <- 0 Hasta n - 2 Hacer
+
+    Para j <- 0 Hasta n - 2 - i Hacer
+
+        Si vector[j] > vector[j + 1] Entonces
+
+            auxiliar <- vector[j]
+            vector[j] <- vector[j + 1]
+            vector[j + 1] <- auxiliar
+
+        FinSi
+
+    FinPara
+
+FinPara
+
+FinFunción
+
+
+Función Imprimir(vector, n)
+
+Definir i como entero.
+
+Escribir "Vector ordenado:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector[i], " "
+FinPara
+
+FinFunción
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
 #include <iostream>
-#include <cmath>
 using namespace std;
-int main() {
-int cantidadNumeros;
-int contador;
-int numero;
-double sumaReciprocos;
-double productoNumeros;
-double mediaArmonica;
-double mediaGeometrica;
-double diferenciaMedias;
-cout << "Ingrese la cantidad de numeros positivos: ";
-cin >> cantidadNumeros;
-sumaReciprocos = 0;
-productoNumeros = 1;
-for (contador = 1; contador <= cantidadNumeros; contador++) {
-cout << "Ingrese el numero " << contador << ": ";
-cin >> numero;
-sumaReciprocos = sumaReciprocos + (1.0 / numero);
-productoNumeros = productoNumeros * numero;
+
+void Ordenar(int vector[], int n)
+{
+    int i, j;
+    int auxiliar;
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = 0; j < n - 1 - i; j++)
+        {
+            if(vector[j] > vector[j + 1])
+            {
+                auxiliar = vector[j];
+                vector[j] = vector[j + 1];
+                vector[j + 1] = auxiliar;
+            }
+        }
+    }
 }
-mediaArmonica = cantidadNumeros / sumaReciprocos;
-mediaGeometrica = pow(productoNumeros, 1.0 / cantidadNumeros);
-diferenciaMedias = mediaArmonica - mediaGeometrica;
-cout << "\nMedia armonica: " << mediaArmonica << endl;
-cout << "Media geometrica: " << mediaGeometrica << endl;
-cout << "Diferencia entre medias: " << diferenciaMedias << endl;
-return 0;
+
+void Imprimir(int vector[], int n)
+{
+    int i;
+
+    cout << "Vector ordenado: ";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector[i] << " ";
+    }
+
+    cout << endl;
 }
+
+int main()
+{
+    int n;
+    int i;
+    int vector[100];
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector[i];
+    }
+
+    Ordenar(vector, n);
+
+    Imprimir(vector, n);
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+Vector = {8, 3, 6, 1, 5}
+
+Proceso de ordenamiento
+
+| Pasada | Estado del vector |
+|--------|-------------------|
+| Inicial | 8 3 6 1 5 |
+| 1 | 3 6 1 5 8 |
+| 2 | 3 1 5 6 8 |
+| 3 | 1 3 5 6 8 |
+| 4 | 1 3 5 6 8 |
+
+Salida
+
+Vector ordenado:
+
+1 3 5 6 8
+
+PREGUNTA
+
+15.- Matrices simétricas:
+Verificar si una matriz cuadrada es simétrica.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i, j como entero.
+Definir matriz[100][100] como entero.
+Definir simetrica como lógico.
+
+simetrica <- Verdadero
+
+Escribir "Ingrese el tamaño de la matriz:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Para j <- 0 Hasta n - 1 Hacer
+        Leer matriz[i][j]
+    FinPara
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+
+    Para j <- 0 Hasta n - 1 Hacer
+
+        Si matriz[i][j] <> matriz[j][i] Entonces
+            simetrica <- Falso
+        FinSi
+
+    FinPara
+
+FinPara
+
+Si simetrica Entonces
+    Escribir "La matriz es simétrica."
+SiNo
+    Escribir "La matriz no es simétrica."
+FinSi
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    int i, j;
+    int matriz[100][100];
+    bool simetrica;
+
+    simetrica = true;
+
+    cout << "Ingrese el tamaño de la matriz: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos de la matriz:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            cin >> matriz[i][j];
+        }
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            if(matriz[i][j] != matriz[j][i])
+            {
+                simetrica = false;
+            }
+        }
+    }
+
+    if(simetrica)
+    {
+        cout << "La matriz es simetrica." << endl;
+    }
+    else
+    {
+        cout << "La matriz no es simetrica." << endl;
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 3
+
+Matriz
+
+|   | C0 | C1 | C2 |
+|---|----|----|----|
+| F0 | 1 | 2 | 3 |
+| F1 | 2 | 4 | 5 |
+| F2 | 3 | 5 | 6 |
+
+Comparación
+
+| Posición | Comparación | Resultado |
+|----------|-------------|-----------|
+| (0,1) y (1,0) | 2 = 2 | Igual |
+| (0,2) y (2,0) | 3 = 3 | Igual |
+| (1,2) y (2,1) | 5 = 5 | Igual |
+
+Salida
+
+La matriz es simétrica.
+
+PREGUNTA
+
+16.- Ordenamiento rápido (QuickSort):
+Implementar QuickSort usando funciones recursivas.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir vector[100] como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
+FinPara
+
+Llamar QuickSort(vector, 0, n - 1)
+
+Escribir "Vector ordenado:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector[i], " "
+FinPara
+
+Fin
+
+
+Función QuickSort(vector, inicio, fin)
+
+Definir i, j, pivote, auxiliar como entero.
+
+i <- inicio
+j <- fin
+pivote <- vector[(inicio + fin) / 2]
+
+Mientras i <= j Hacer
+
+    Mientras vector[i] < pivote Hacer
+        i <- i + 1
+    FinMientras
+
+    Mientras vector[j] > pivote Hacer
+        j <- j - 1
+    FinMientras
+
+    Si i <= j Entonces
+
+        auxiliar <- vector[i]
+        vector[i] <- vector[j]
+        vector[j] <- auxiliar
+
+        i <- i + 1
+        j <- j - 1
+
+    FinSi
+
+FinMientras
+
+Si inicio < j Entonces
+    Llamar QuickSort(vector, inicio, j)
+FinSi
+
+Si i < fin Entonces
+    Llamar QuickSort(vector, i, fin)
+FinSi
+
+FinFunción
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+void QuickSort(int vector[], int inicio, int fin)
+{
+    int i;
+    int j;
+    int pivote;
+    int auxiliar;
+
+    i = inicio;
+    j = fin;
+    pivote = vector[(inicio + fin) / 2];
+
+    while(i <= j)
+    {
+        while(vector[i] < pivote)
+        {
+            i++;
+        }
+
+        while(vector[j] > pivote)
+        {
+            j--;
+        }
+
+        if(i <= j)
+        {
+            auxiliar = vector[i];
+            vector[i] = vector[j];
+            vector[j] = auxiliar;
+
+            i++;
+            j--;
+        }
+    }
+
+    if(inicio < j)
+    {
+        QuickSort(vector, inicio, j);
+    }
+
+    if(i < fin)
+    {
+        QuickSort(vector, i, fin);
+    }
+}
+
+int main()
+{
+    int n;
+    int i;
+    int vector[100];
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector[i];
+    }
+
+    QuickSort(vector, 0, n - 1);
+
+    cout << "\nVector ordenado:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+Vector = {5, 3, 8, 1, 4}
+
+Proceso
+
+| Paso | Estado del vector |
+|------|-------------------|
+| Inicial | 5 3 8 1 4 |
+| Primer pivote = 8 | 5 3 4 1 8 |
+| Segundo pivote = 3 | 1 3 4 5 8 |
+| Tercer pivote = 4 | 1 3 4 5 8 |
+
+Salida
+
+Vector ordenado:
+
+1 3 4 5 8
+
+PREGUNTA
+
+17.- Gestión de inventario:
+Leer productos, aplicar descuentos y generar un reporte final.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir codigo[100], stock[100] como entero.
+Definir nombre[100] como cadena.
+Definir precio[100], precioFinal[100], descuento como real.
+
+descuento <- 0.15
+
+Escribir "Ingrese la cantidad de productos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+
+    Escribir "Codigo:"
+    Leer codigo[i]
+
+    Escribir "Nombre:"
+    Leer nombre[i]
+
+    Escribir "Precio:"
+    Leer precio[i]
+
+    Escribir "Stock:"
+    Leer stock[i]
+
+FinPara
+
+Para i <- 0 Hasta n - 1 Hacer
+
+    precioFinal[i] <- precio[i] - (precio[i] * descuento)
+
+FinPara
+
+Escribir "REPORTE FINAL"
+
+Para i <- 0 Hasta n - 1 Hacer
+
+    Escribir codigo[i], nombre[i], precio[i], precioFinal[i], stock[i]
+
+FinPara
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int i;
+
+    int codigo[100];
+    int stock[100];
+
+    string nombre[100];
+
+    float precio[100];
+    float precioFinal[100];
+    float descuento;
+
+    descuento = 0.15;
+
+    cout << "Ingrese la cantidad de productos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "\nProducto " << i + 1 << endl;
+
+        cout << "Codigo: ";
+        cin >> codigo[i];
+
+        cout << "Nombre: ";
+        cin >> nombre[i];
+
+        cout << "Precio: ";
+        cin >> precio[i];
+
+        cout << "Stock: ";
+        cin >> stock[i];
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        precioFinal[i] = precio[i] - (precio[i] * descuento);
+    }
+
+    cout << "\n=========== REPORTE FINAL ===========" << endl;
+
+    cout << "Codigo\tNombre\tPrecio\tPrecio Final\tStock\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << codigo[i] << "\t"
+             << nombre[i] << "\t"
+             << precio[i] << "\t"
+             << precioFinal[i] << "\t\t"
+             << stock[i] << endl;
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 3
+
+| Código | Nombre | Precio | Stock |
+|--------:|---------|-------:|------:|
+| 101 | Laptop | 3500 | 10 |
+| 102 | Mouse | 80 | 40 |
+| 103 | Teclado | 150 | 25 |
+
+Descuento = 15%
+
+| Código | Nombre | Precio | Precio Final | Stock |
+|--------:|---------|-------:|-------------:|------:|
+| 101 | Laptop | 3500 | 2975 | 10 |
+| 102 | Mouse | 80 | 68 | 40 |
+| 103 | Teclado | 150 | 127.5 | 25 |
+
+Salida
+
+=========== REPORTE FINAL ===========
+
+Codigo    Nombre    Precio    Precio Final    Stock
+
+101       Laptop    3500      2975           10
+
+102       Mouse     80        68             40
+
+103       Teclado   150       127.5          25
+
+
+PREGUNTA
+
+18.- Matrices dinámicas con apuntadores:
+Crear y manipular matrices dinámicas usando doble puntero.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir filas, columnas, i, j como entero.
+Definir matriz como apuntador a apuntador de entero.
+
+Escribir "Ingrese el número de filas:"
+Leer filas
+
+Escribir "Ingrese el número de columnas:"
+Leer columnas
+
+matriz <- Nuevo arreglo de filas
+
+Para i <- 0 Hasta filas - 1 Hacer
+    matriz[i] <- Nuevo arreglo de columnas
+FinPara
+
+Para i <- 0 Hasta filas - 1 Hacer
+    Para j <- 0 Hasta columnas - 1 Hacer
+        Leer matriz[i][j]
+    FinPara
+FinPara
+
+Escribir "Matriz:"
+
+Para i <- 0 Hasta filas - 1 Hacer
+    Para j <- 0 Hasta columnas - 1 Hacer
+        Escribir matriz[i][j], " "
+    FinPara
+    Escribir ""
+FinPara
+
+Para i <- 0 Hasta filas - 1 Hacer
+    Liberar matriz[i]
+FinPara
+
+Liberar matriz
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int filas;
+    int columnas;
+    int i;
+    int j;
+
+    int **matriz;
+
+    cout << "Ingrese el numero de filas: ";
+    cin >> filas;
+
+    cout << "Ingrese el numero de columnas: ";
+    cin >> columnas;
+
+    matriz = new int*[filas];
+
+    for(i = 0; i < filas; i++)
+    {
+        matriz[i] = new int[columnas];
+    }
+
+    cout << "Ingrese los elementos de la matriz:\n";
+
+    for(i = 0; i < filas; i++)
+    {
+        for(j = 0; j < columnas; j++)
+        {
+            cin >> matriz[i][j];
+        }
+    }
+
+    cout << "\nMatriz:\n";
+
+    for(i = 0; i < filas; i++)
+    {
+        for(j = 0; j < columnas; j++)
+        {
+            cout << matriz[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    for(i = 0; i < filas; i++)
+    {
+        delete[] matriz[i];
+    }
+
+    delete[] matriz;
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+Filas = 2
+
+Columnas = 3
+
+Valores
+
+| Fila | Columna | Valor |
+|-----:|---------:|------:|
+| 0 | 0 | 1 |
+| 0 | 1 | 2 |
+| 0 | 2 | 3 |
+| 1 | 0 | 4 |
+| 1 | 1 | 5 |
+| 1 | 2 | 6 |
+
+Matriz mostrada
+
+|   | C0 | C1 | C2 |
+|---|----|----|----|
+| F0 | 1 | 2 | 3 |
+| F1 | 4 | 5 | 6 |
+
+Salida
+
+1 2 3
+
+4 5 6
+
+Memoria liberada correctamente con:
+
+delete[] matriz[i];
+
+delete[] matriz;
+
+PREGUNTA
+
+PREGUNTA
+
+19.- Ordenamiento combinado:
+Implementar Merge Sort y comparar su eficiencia con Bubble Sort.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir vector1[100], vector2[100] como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector1[i]
+    vector2[i] <- vector1[i]
+FinPara
+
+Llamar BubbleSort(vector1, n)
+
+Llamar MergeSort(vector2, 0, n - 1)
+
+Escribir "Resultado con Bubble Sort:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector1[i], " "
+FinPara
+
+Escribir ""
+
+Escribir "Resultado con Merge Sort:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector2[i], " "
+FinPara
+
+Escribir ""
+
+Escribir "Merge Sort es más eficiente para grandes cantidades de datos."
+
+Fin
+
+
+Función BubbleSort(vector, n)
+
+Definir i, j, auxiliar como entero.
+
+Para i <- 0 Hasta n - 2 Hacer
+
+    Para j <- 0 Hasta n - 2 - i Hacer
+
+        Si vector[j] > vector[j + 1] Entonces
+
+            auxiliar <- vector[j]
+            vector[j] <- vector[j + 1]
+            vector[j + 1] <- auxiliar
+
+        FinSi
+
+    FinPara
+
+FinPara
+
+FinFunción
+
+
+Función Merge(vector, izquierda, medio, derecha)
+
+Definir i, j, k como entero.
+Definir izquierdaVector[100], derechaVector[100] como entero.
+
+Copiar los elementos de la parte izquierda.
+
+Copiar los elementos de la parte derecha.
+
+Comparar ambos vectores y colocarlos ordenadamente.
+
+Copiar los elementos restantes.
+
+FinFunción
+
+
+Función MergeSort(vector, izquierda, derecha)
+
+Definir medio como entero.
+
+Si izquierda < derecha Entonces
+
+    medio <- (izquierda + derecha) / 2
+
+    Llamar MergeSort(vector, izquierda, medio)
+
+    Llamar MergeSort(vector, medio + 1, derecha)
+
+    Llamar Merge(vector, izquierda, medio, derecha)
+
+FinSi
+
+FinFunción
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+void BubbleSort(int vector[], int n)
+{
+    int i, j, auxiliar;
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = 0; j < n - 1 - i; j++)
+        {
+            if(vector[j] > vector[j + 1])
+            {
+                auxiliar = vector[j];
+                vector[j] = vector[j + 1];
+                vector[j + 1] = auxiliar;
+            }
+        }
+    }
+}
+
+void Merge(int vector[], int izquierda, int medio, int derecha)
+{
+    int i, j, k;
+
+    int n1 = medio - izquierda + 1;
+    int n2 = derecha - medio;
+
+    int izquierdaVector[100];
+    int derechaVector[100];
+
+    for(i = 0; i < n1; i++)
+    {
+        izquierdaVector[i] = vector[izquierda + i];
+    }
+
+    for(j = 0; j < n2; j++)
+    {
+        derechaVector[j] = vector[medio + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = izquierda;
+
+    while(i < n1 && j < n2)
+    {
+        if(izquierdaVector[i] <= derechaVector[j])
+        {
+            vector[k] = izquierdaVector[i];
+            i++;
+        }
+        else
+        {
+            vector[k] = derechaVector[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while(i < n1)
+    {
+        vector[k] = izquierdaVector[i];
+        i++;
+        k++;
+    }
+
+    while(j < n2)
+    {
+        vector[k] = derechaVector[j];
+        j++;
+        k++;
+    }
+}
+
+void MergeSort(int vector[], int izquierda, int derecha)
+{
+    int medio;
+
+    if(izquierda < derecha)
+    {
+        medio = (izquierda + derecha) / 2;
+
+        MergeSort(vector, izquierda, medio);
+
+        MergeSort(vector, medio + 1, derecha);
+
+        Merge(vector, izquierda, medio, derecha);
+    }
+}
+
+int main()
+{
+    int n;
+    int i;
+
+    int vector1[100];
+    int vector2[100];
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector1[i];
+
+        vector2[i] = vector1[i];
+    }
+
+    BubbleSort(vector1, n);
+
+    MergeSort(vector2, 0, n - 1);
+
+    cout << "\nResultado con Bubble Sort:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector1[i] << " ";
+    }
+
+    cout << "\n\nResultado con Merge Sort:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector2[i] << " ";
+    }
+
+    cout << "\n\nMerge Sort es más eficiente para grandes cantidades de datos." << endl;
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 5
+
+Vector = {5, 2, 8, 1, 4}
+
+Proceso
+
+Vector original
+
+| Posición | Valor |
+|----------|-------|
+| 0 | 5 |
+| 1 | 2 |
+| 2 | 8 |
+| 3 | 1 |
+| 4 | 4 |
+
+Resultado
+
+| Algoritmo | Vector Ordenado |
+|-----------|-----------------|
+| Bubble Sort | 1 2 4 5 8 |
+| Merge Sort | 1 2 4 5 8 |
+
+Comparación
+
+| Algoritmo | Eficiencia |
+|-----------|------------|
+| Bubble Sort | O(n²) |
+| Merge Sort | O(n log n) |
+
+Salida
+
+Resultado con Bubble Sort:
+
+1 2 4 5 8
+
+Resultado con Merge Sort:
+
+1 2 4 5 8
+
+
+En conclusion Merge Sort es más eficiente para grandes cantidades de datos.
+
+
+PREGUNTA
+
+20.- Sistema de calificaciones con archivos:
+Leer notas de estudiantes desde dos archivos (Grupo A y Grupo B). Cada estudiante tiene tres notas. Calcular promedios, ordenar por mérito en cada grupo y generar un nuevo archivo donde solo aparezcan los estudiantes que pertenecen al tercio superior de su respectivo grupo.
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir nombre[100] como cadena.
+Definir nota1[100], nota2[100], nota3[100] como real.
+Definir promedio[100] como real.
+Definir cantidad, i, j como entero.
+
+Abrir archivo "grupoA.txt"
+
+Leer estudiantes y calcular promedio
+
+Ordenar por promedio descendente
+
+Mostrar ranking Grupo A
+
+Cerrar archivo
+
+Abrir archivo "grupoB.txt"
+
+Leer estudiantes y calcular promedio
+
+Ordenar por promedio descendente
+
+Mostrar ranking Grupo B
+
+Cerrar archivo
+
+Crear archivo "tercioSuperior.txt"
+
+Guardar estudiantes pertenecientes al tercio superior
+de cada grupo
+
+Cerrar archivo
+
+Fin
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string nombre[100];
+    float nota1[100];
+    float nota2[100];
+    float nota3[100];
+    float promedio[100];
+
+    int cantidad;
+    int i, j;
+
+    string auxNombre;
+    float auxPromedio;
+
+    ifstream archivo;
+    ofstream salida;
+
+    cout << "===== GRUPO A =====\n";
+
+    archivo.open("grupoA.txt");
+
+    cantidad = 0;
+
+    while(archivo >> nombre[cantidad]
+                  >> nota1[cantidad]
+                  >> nota2[cantidad]
+                  >> nota3[cantidad])
+    {
+        promedio[cantidad] =
+        (nota1[cantidad] +
+         nota2[cantidad] +
+         nota3[cantidad]) / 3.0;
+
+        cantidad++;
+    }
+
+    archivo.close();
+
+    for(i = 0; i < cantidad - 1; i++)
+    {
+        for(j = 0; j < cantidad - 1 - i; j++)
+        {
+            if(promedio[j] < promedio[j + 1])
+            {
+                auxPromedio = promedio[j];
+                promedio[j] = promedio[j + 1];
+                promedio[j + 1] = auxPromedio;
+
+                auxNombre = nombre[j];
+                nombre[j] = nombre[j + 1];
+                nombre[j + 1] = auxNombre;
+            }
+        }
+    }
+
+    for(i = 0; i < cantidad; i++)
+    {
+        cout << i + 1 << ". "
+             << nombre[i]
+             << " Promedio: "
+             << promedio[i]
+             << endl;
+    }
+
+    salida.open("tercioSuperior.txt");
+
+    for(i = 0; i < cantidad / 3; i++)
+    {
+        salida << nombre[i]
+               << " "
+               << promedio[i]
+               << endl;
+    }
+
+    cout << "\n===== GRUPO B =====\n";
+
+    archivo.open("grupoB.txt");
+
+    cantidad = 0;
+
+    while(archivo >> nombre[cantidad]
+                  >> nota1[cantidad]
+                  >> nota2[cantidad]
+                  >> nota3[cantidad])
+    {
+        promedio[cantidad] =
+        (nota1[cantidad] +
+         nota2[cantidad] +
+         nota3[cantidad]) / 3.0;
+
+        cantidad++;
+    }
+
+    archivo.close();
+
+    for(i = 0; i < cantidad - 1; i++)
+    {
+        for(j = 0; j < cantidad - 1 - i; j++)
+        {
+            if(promedio[j] < promedio[j + 1])
+            {
+                auxPromedio = promedio[j];
+                promedio[j] = promedio[j + 1];
+                promedio[j + 1] = auxPromedio;
+
+                auxNombre = nombre[j];
+                nombre[j] = nombre[j + 1];
+                nombre[j + 1] = auxNombre;
+            }
+        }
+    }
+
+    for(i = 0; i < cantidad; i++)
+    {
+        cout << i + 1 << ". "
+             << nombre[i]
+             << " Promedio: "
+             << promedio[i]
+             << endl;
+    }
+
+    for(i = 0; i < cantidad / 3; i++)
+    {
+        salida << nombre[i]
+               << " "
+               << promedio[i]
+               << endl;
+    }
+
+    salida.close();
+
+    return 0;
+}
+
+------------------------------------------------------------
+ARCHIVO grupoA.txt
+------------------------------------------------------------
+
+Ana 18 17 19
+Luis 15 14 16
+Carlos 20 18 19
+Maria 17 18 18
+Pedro 14 15 16
+Juan 19 20 18
+
+------------------------------------------------------------
+ARCHIVO grupoB.txt
+------------------------------------------------------------
+
+Rosa 18 19 20
+Jose 15 16 15
+Miguel 19 18 20
+Lucia 17 18 17
+Elena 20 19 20
+Mario 14 15 16
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+GRUPO A
+
+| Puesto | Estudiante | Promedio |
+|---------|-----------|-----------|
+| 1 | Carlos | 19.00 |
+| 2 | Juan | 19.00 |
+| 3 | Ana | 18.00 |
+| 4 | Maria | 17.67 |
+| 5 | Luis | 15.00 |
+| 6 | Pedro | 15.00 |
+
+Tercio Superior Grupo A
+
+6 / 3 = 2 estudiantes
+
+Carlos
+Juan
+
+GRUPO B
+
+| Puesto | Estudiante | Promedio |
+|---------|-----------|-----------|
+| 1 | Elena | 19.67 |
+| 2 | Miguel | 19.00 |
+| 3 | Rosa | 19.00 |
+| 4 | Lucia | 17.33 |
+| 5 | Jose | 15.33 |
+| 6 | Mario | 15.00 |
+
+Tercio Superior Grupo B
+
+6 / 3 = 2 estudiantes
+
+Elena
+Miguel
+
+------------------------------------------------------------
+ARCHIVO tercioSuperior.txt
+------------------------------------------------------------
+
+Carlos 19.00
+Juan 19.00
+Elena 19.67
+Miguel 19.00
+
+PREGUNTA
+
+21.- Dado un vector de números enteros, escriba una función que ordene los elementos del vector de tal forma que los números pares aparezcan antes que los números impares. Además, los números pares deberán estar ordenados de forma ascendente, mientras que los números impares deberán estar ordenados de forma descendente.
+
+Ejemplo:
+
+{1,2,3,4,5,6} → {2,4,6,5,3,1}
+
+------------------------------------------------------------
+ALGORITMO
+------------------------------------------------------------
+
+Inicio
+
+Definir n, i como entero.
+Definir vector[100] como entero.
+
+Escribir "Ingrese la cantidad de elementos:"
+Leer n
+
+Para i <- 0 Hasta n - 1 Hacer
+    Leer vector[i]
+FinPara
+
+Llamar Ordenar(vector, n)
+
+Escribir "Vector ordenado:"
+
+Para i <- 0 Hasta n - 1 Hacer
+    Escribir vector[i], " "
+FinPara
+
+Fin
+
+
+Función Ordenar(vector, n)
+
+Definir i, j, auxiliar como entero.
+
+Para i <- 0 Hasta n - 2 Hacer
+
+    Para j <- 0 Hasta n - 2 - i Hacer
+
+        Si (vector[j] es impar Y vector[j+1] es par) Entonces
+
+            Intercambiar vector[j] y vector[j+1]
+
+        SiNo
+
+            Si ambos son pares Y vector[j] > vector[j+1] Entonces
+
+                Intercambiar vector[j] y vector[j+1]
+
+            FinSi
+
+            Si ambos son impares Y vector[j] < vector[j+1] Entonces
+
+                Intercambiar vector[j] y vector[j+1]
+
+            FinSi
+
+        FinSi
+
+    FinPara
+
+FinPara
+
+FinFunción
+
+------------------------------------------------------------
+CÓDIGO C++
+------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+void Ordenar(int vector[], int n)
+{
+    int i;
+    int j;
+    int auxiliar;
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = 0; j < n - 1 - i; j++)
+        {
+            if((vector[j] % 2 != 0) && (vector[j + 1] % 2 == 0))
+            {
+                auxiliar = vector[j];
+                vector[j] = vector[j + 1];
+                vector[j + 1] = auxiliar;
+            }
+            else
+            {
+                if((vector[j] % 2 == 0) && (vector[j + 1] % 2 == 0))
+                {
+                    if(vector[j] > vector[j + 1])
+                    {
+                        auxiliar = vector[j];
+                        vector[j] = vector[j + 1];
+                        vector[j + 1] = auxiliar;
+                    }
+                }
+
+                if((vector[j] % 2 != 0) && (vector[j + 1] % 2 != 0))
+                {
+                    if(vector[j] < vector[j + 1])
+                    {
+                        auxiliar = vector[j];
+                        vector[j] = vector[j + 1];
+                        vector[j + 1] = auxiliar;
+                    }
+                }
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    int i;
+    int vector[100];
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for(i = 0; i < n; i++)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vector[i];
+    }
+
+    Ordenar(vector, n);
+
+    cout << "\nVector ordenado:\n";
+
+    for(i = 0; i < n; i++)
+    {
+        cout << vector[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+------------------------------------------------------------
+PRUEBA DE ESCRITORIO
+------------------------------------------------------------
+
+Entrada
+
+n = 6
+
+Vector = {1, 2, 3, 4, 5, 6}
+
+Proceso
+
+| Paso | Estado del vector |
+|------|-------------------|
+| Inicial | 1 2 3 4 5 6 |
+| Reordenar pares e impares | 2 1 4 3 6 5 |
+| Ordenar pares ascendente | 2 4 6 1 3 5 |
+| Ordenar impares descendente | 2 4 6 5 3 1 |
+
+Salida
+
+Vector ordenado:
+
+2 4 6 5 3 1
+
 
 
