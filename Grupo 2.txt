@@ -14,27 +14,6 @@ Escribir i, "! = ", factorial
 
 FinPara
 Fin
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int n;
-    long long factorial = 1;
-
-    cin >> n;
-
-    for(int i = 1; i <= n; i++) {
-
-        factorial = factorial * i;
-
-        cout << i << "! = " << factorial << endl;
-
-    }
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 2
@@ -55,34 +34,6 @@ FinPara
 resultado = raíz de índice denominador de potencia
 Escribir resultado
 Fin
-Código C++:
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-int main() {
-
-    double base;
-    int numerador, denominador;
-
-    cin >> base;
-    cin >> numerador;
-    cin >> denominador;
-
-    double potencia = 1;
-
-    for(int i = 1; i <= numerador; i++) {
-
-        potencia = potencia * base;
-
-    }
-
-    double resultado = pow(potencia, 1.0/denominador);
-
-    cout << resultado;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 3
@@ -98,24 +49,6 @@ suma = suma + i * i
 FinPara
 Escribir suma
 Fin
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int suma = 0;
-
-    for(int i = 1; i <= 100; i++) {
-
-        suma = suma + i * i;
-
-    }
-
-    cout << suma;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 4
@@ -143,55 +76,6 @@ FinSi
 FinPara
 Escribir contador
 Fin
-Código C++:
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-
-    int cantidad;
-    int contador = 0;
-
-    cin >> cantidad;
-
-    for(int i = 1; i <= cantidad; i++) {
-
-        string numero;
-
-        cin >> numero;
-
-        int longitud = numero.length();
-        int mitad = longitud / 2;
-
-        string primera;
-        string segunda;
-
-        if(longitud % 2 == 0) {
-
-            primera = numero.substr(0, mitad);
-            segunda = numero.substr(mitad, mitad);
-
-        }
-        else {
-
-            primera = numero.substr(0, mitad);
-            segunda = numero.substr(mitad + 1, mitad);
-
-        }
-
-        if(primera == segunda) {
-
-            contador++;
-
-        }
-
-    }
-
-    cout << contador;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 5
@@ -213,63 +97,6 @@ denProducto = d1 * d2
 Escribir "Suma = ", numSuma, "/", denSuma
 Escribir "Producto = ", numProducto, "/", denProducto
 Fin
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int n1, d1, n2, d2;
-
-    cin >> n1 >> d1;
-    cin >> n2 >> d2;
-
-    int a = n1;
-    int b = d1;
-
-    while(b != 0) {
-
-        int r = a % b;
-
-        a = b;
-        b = r;
-
-    }
-
-    int mcd1 = a;
-
-    a = n2;
-    b = d2;
-
-    while(b != 0) {
-
-        int r = a % b;
-
-        a = b;
-        b = r;
-
-    }
-
-    int mcd2 = a;
-
-    n1 = n1 / mcd1;
-    d1 = d1 / mcd1;
-
-    n2 = n2 / mcd2;
-    d2 = d2 / mcd2;
-
-    int numSuma = n1 * d2 + n2 * d1;
-    int denSuma = d1 * d2;
-
-    int numProducto = n1 * n2;
-    int denProducto = d1 * d2;
-
-    cout << "Suma = " << numSuma << "/" << denSuma << endl;
-    cout << "Producto = " << numProducto << "/" << denProducto << endl;
-
-    return 0;
-}
-
 
 
 
@@ -319,51 +146,6 @@ Leer d1
 
 FinMientras
 Fin
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int d1, m1, a1;
-    int d2, m2, a2;
-
-    cin >> d1;
-
-    while(d1 != 0) {
-
-        cin >> m1 >> a1;
-
-        cin >> d2 >> m2 >> a2;
-
-        if(a1 < a2)
-            cout << "La primera fecha es anterior" << endl;
-
-        else if(a1 > a2)
-            cout << "La segunda fecha es anterior" << endl;
-
-        else if(m1 < m2)
-            cout << "La primera fecha es anterior" << endl;
-
-        else if(m1 > m2)
-            cout << "La segunda fecha es anterior" << endl;
-
-        else if(d1 < d2)
-            cout << "La primera fecha es anterior" << endl;
-
-        else if(d1 > d2)
-            cout << "La segunda fecha es anterior" << endl;
-
-        else
-            cout << "Las fechas son iguales" << endl;
-
-        cin >> d1;
-    }
-
-    return 0;
-}
-
-
 EJERCICIO 7 
 
 Modificar el programa anterior para que permita un número máximo de intentos (dado por la constante MAXINTENTOS), superados los cuales terminará imprimiendo el mensaje: "Lo siento, ha perdido". 
@@ -410,57 +192,8 @@ INICIO
     	ESCRIBIR "Lo siento, ha perdido" 
   
 	FIN SI 
-  
-  
-FIN
-CÓDIGO C++
-
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-    // Declaración de constantes
-    const int MAXINTENTOS = 5;
-
-    // Declaración de variables
-    int numeroSecreto;
-    int numeroUsuario;
-    int intentos;
-    bool acertado;
 
 
-    // Inicialización
-    numeroSecreto = 7;
-    intentos = 0;
-    acertado = false;
-
-
-    while (intentos < MAXINTENTOS && acertado == false)
-    {
-        cout << "Introduzca un numero: ";
-        cin >> numeroUsuario;
-
-        intentos++;
-
-
-        if (numeroUsuario == numeroSecreto)
-        {
-            cout << "Felicidades, ha acertado" << endl;
-            acertado = true;
-        }
-    }
-
-
-    if (acertado == false)
-    {
-        cout << "Lo siento, ha perdido" << endl;
-    }
-
-
-    return 0;
-}
 
 
 
@@ -532,72 +265,7 @@ INICIO
   
 FIN 
 
-CODIGO C++
 
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-    // Declaración de constantes
-    const int MAXINTENTOS = 5;
-
-
-    // Declaración de variables
-    int numeroSecreto;
-    int numeroUsuario;
-    int intentos;
-    bool acertado;
-
-
-    // Inicialización
-    numeroSecreto = 7;
-    intentos = 0;
-    acertado = false;
-
-
-
-    while (intentos < MAXINTENTOS && acertado == false)
-    {
-
-        cout << "Introduzca un numero: ";
-        cin >> numeroUsuario;
-
-
-        intentos++;
-
-
-        if (numeroUsuario == numeroSecreto)
-        {
-            cout << "Felicidades, ha acertado" << endl;
-            acertado = true;
-        }
-        else
-        {
-
-            if (numeroUsuario < numeroSecreto)
-            {
-                cout << "El numero secreto es mayor" << endl;
-            }
-            else
-            {
-                cout << "El numero secreto es menor" << endl;
-            }
-
-        }
-
-    }
-
-
-    if (acertado == false)
-    {
-        cout << "Lo siento, ha perdido" << endl;
-    }
-
-
-    return 0;
-}
 
 EJERCICIO 9
 Pregunta:
@@ -616,25 +284,7 @@ Escribir " "
 
 FinPara
 Fin
-Código C++:
-#include <iostream>
-using namespace std;
 
-int main() {
-
-    for(int i = 1; i <= 10; i++) {
-
-        for(int j = 1; j <= 10; j++) {
-
-            cout << i << " x " << j << " = " << i * j << endl;
-
-        }
-
-        cout << endl;
-    }
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 10
@@ -652,26 +302,6 @@ Algoritmo Factorial_Mientras
 	FinMientras
 	Escribir "El factorial de ", n, " es: ", factorial
 FinAlgoritmo
-Código C++:
-#include <iostream>
-using namespace std;
- 
-int main() {
-	int n, i = 1;
-	long long factorial = 1;
- 
-	cout << "Ingrese un numero: ";
-	cin >> n;
- 
-	while (i <= n) {
-        factorial = factorial * i;
-    	i++;
-	}
- 
-	cout << "El factorial de " << n << " es: " << factorial << endl;
- 
-	return 0;
-} 
 
 ________________________________________
 EJERCICIO 11
@@ -698,38 +328,6 @@ Pseudocódigo:
     Escribir "Número de puntos dentro o en frontera de c1: ", contadorC1
     Escribir "Número de puntos dentro o en frontera de c2: ", contadorC2
 FinAlgoritmo
-
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int n;
-    int contador = 0;
-
-    double x, y;
-
-    cin >> n;
-
-    for(int i = 1; i <= n; i++) {
-
-        cin >> x >> y;
-
-        if((x - 5)*(x - 5) + (y - 4)*(y - 4) <= 4)
-            contador++;
-
-        if((x + 5)*(x + 5) + (y + 4)*(y + 4) <= 9)
-            contador++;
-
-    }
-
-    cout << "Cantidad de puntos: " << contador;
-
-    return 0;
-}
-
-
 
 
 
@@ -802,77 +400,7 @@ Algoritmo DescifrarNumero
     Escribir "Número original: ", numeroOriginal
 FinAlgoritmo
 
-Código C++ (Cifrar):
-#include <iostream>
-using namespace std;
-int main() {
-    int numero;
-    cin >> numero;
-    int d1 = numero / 1000;
-    int d2 = (numero / 100) % 10;
-    int d3 = (numero / 10) % 10;
-    int d4 = numero % 10;
 
-    d1 = (d1 + 7) % 10;
-    d2 = (d2 + 7) % 10;
-    d3 = (d3 + 7) % 10;
-    d4 = (d4 + 7) % 10;
-
-    int aux;
-
-    aux = d1;
-    d1 = d3;
-    d3 = aux;
-
-    aux = d2;
-    d2 = d4;
-    d4 = aux;
-
-    cout << d1 << d2 << d3 << d4;
-
-    return 0;
-}
-
-
-Código C++ (Descifrar):
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int numero;
-
-    cin >> numero;
-
-    int d1 = numero / 1000;
-    int d2 = (numero / 100) % 10;
-    int d3 = (numero / 10) % 10;
-    int d4 = numero % 10;
-
-    int aux;
-
-    aux = d1;
-    d1 = d3;
-    d3 = aux;
-
-    aux = d2;
-    d2 = d4;
-    d4 = aux;
-
-    if(d1 < 7) d1 += 10;
-    if(d2 < 7) d2 += 10;
-    if(d3 < 7) d3 += 10;
-    if(d4 < 7) d4 += 10;
-
-    d1 -= 7;
-    d2 -= 7;
-    d3 -= 7;
-    d4 -= 7;
-
-    cout << d1 << d2 << d3 << d4;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 13
@@ -895,29 +423,7 @@ Escribir "La suma de los números pares entre 1 y 200 es: ", sumaPares
  Escribir "La suma de los números impares entre 1 y 200 es: ", sumaImpares
 Fin
 
-Código C++:
-#include <iostream>
-using namespace std;
 
-int main() {
-
-    int sumaPares = 0;
-    int sumaImpares = 0;
-
-    for(int i = 1; i <= 200; i++) {
-
-        if(i % 2 == 0)
-            sumaPares += i;
-        else
-            sumaImpares += i;
-
-    }
-
-    cout << "Suma pares = " << sumaPares << endl;
-    cout << "Suma impares = " << sumaImpares;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 14
@@ -933,24 +439,6 @@ FinPara
 Escribir suma
 Fin
 
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int suma = 0;
-
-    for(int i = 1; i <= 100; i++) {
-
-        suma = suma + i * i;
-
-    }
-
-    cout << suma;
-
-    return 0;
-}
 
 ________________________________________
 EJERCICIO 15
@@ -996,35 +484,6 @@ Cálculo:
 
 
 
-Código C++:
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    double a, b, c, d;
-    double inicio, fin;
-
-    cin >> a >> b;
-    cin >> c >> d;
-
-    if(a > c)
-        inicio = a;
-    else
-        inicio = c;
-
-    if(b < d)
-        fin = b;
-    else
-        fin = d;
-
-    if(inicio <= fin)
-        cout << "La interseccion es [" << inicio << "," << fin << "]";
-    else
-        cout << "No existe interseccion";
-
-    return 0;
-}
 
 
 
@@ -1102,28 +561,7 @@ Fin
 
 
 
-Código C++:
 
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    long long a,b,c,d;
-    long long fx;
-
-    cin >> a >> b >> c >> d;
-
-    for(int x = 8; x <= 100; x++) {
-
-        fx = a*x*x*x*x - b*x*x*x + 2*c*x*x - x + d;
-
-        cout << "f(" << x << ") = " << fx << endl;
-
-    }
-
-    return 0;
-}
 
 
 EJERCICIO 18
@@ -1171,74 +609,6 @@ FinSegun
 Fin
 
 
-
-Código C++:
-
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    int mes;
-
-    cin >> mes;
-
-    switch(mes) {
-
-        case 1:
-            cout << "Enero - 31 dias";
-            break;
-
-        case 2:
-            cout << "Febrero - 28 dias";
-            break;
-
-        case 3:
-            cout << "Marzo - 31 dias";
-            break;
-
-        case 4:
-            cout << "Abril - 30 dias";
-            break;
-
-        case 5:
-            cout << "Mayo - 31 dias";
-            break;
-
-        case 6:
-            cout << "Junio - 30 dias";
-            break;
-
-        case 7:
-            cout << "Julio - 31 dias";
-            break;
-
-        case 8:
-            cout << "Agosto - 31 dias";
-            break;
-
-        case 9:
-            cout << "Septiembre - 30 dias";
-            break;
-
-        case 10:
-            cout << "Octubre - 31 dias";
-            break;
-
-        case 11:
-            cout << "Noviembre - 30 dias";
-            break;
-
-        case 12:
-            cout << "Diciembre - 31 dias";
-            break;
-
-        default:
-            cout << "Mes invalido";
-    }
-
-    return 0;
-}
 
 
 
@@ -1313,32 +683,7 @@ FIN
 .Mostrar el número binario.
 
 
-CÓDIGO:
 
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n;
-    long long binario = 0;
-    long long posicion = 1;
-
-    cout << "Ingrese un numero decimal: ";
-    cin >> n;
-
-    while (n > 0) {
-        binario = binario + (n % 2) * posicion;
-        posicion = posicion * 10;
-        n = n / 2;
-    }
-
-    cout << "Numero en binario: " << binario;
-
-    return 0;
-}
-
-
-21. INVERTIR LAS CIFRAS DE UN NÚMERO
 
 PREGUNTA:
 Elabore un programa que lea un número entero y escriba el número resultante de invertir sus cifras.
@@ -1352,26 +697,6 @@ ALGORITMO:
    - Eliminar el último dígito del número original.
 4. Mostrar el número invertido.
 
-CÓDIGO:
-
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n, invertido = 0;
-
-    cout << "Ingrese un numero: ";
-    cin >> n;
-
-    while (n > 0) {
-        invertido = invertido * 10 + n % 10;
-        n = n / 10;
-    }
-
-    cout << "Numero invertido: " << invertido;
-
-    return 0;
-}
 
 
 22. PIRÁMIDE NUMÉRICA
@@ -1430,51 +755,6 @@ INICIO
     FINMIENTRAS
 
 FIN
-
-CÓDIGO C++:
-
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n;
-
-    cout << "Ingrese el numero de filas: ";
-    cin >> n;
-
-    int fila = 1;
-
-    while (fila <= n) {
-
-        int i = 0;
-
-        while (i < fila) {
-            cout << (fila + i) % 10 << " ";
-            i++;
-        }
-
-        i = fila - 2;
-
-        while (i >= 0) {
-            cout << (fila + i) % 10 << " ";
-            i--;
-        }
-
-        cout << endl;
-        fila++;
-    }
-
-    return 0;
-}
-
-
-
-
-
-
-
-
-
 
 23.- La función trigonométrica seno para un ángulo x (en radianes) se calcula con la siguiente serie: x – x3 / 3! + x5 / 5! – x7 / 7! +	. . .
 
@@ -1556,64 +836,6 @@ INICIO
 FIN
 
 
-CÓDIGO C++
-
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
-const double PI = 3.14159265358979323846;
-
-// Método para calcular el seno usando la serie de Taylor
-double seno(double x, int n)
-{
-    double suma = 0;
-    double termino = x;
-
-    for (int i = 1; i <= n; i++)
-    {
-        suma += termino;
-        termino = -termino * x * x / ((2 * i) * (2 * i + 1));
-    }
-
-    return suma;
-}
-
-int main()
-{
-    string angulos[] = {
-        "0", "π/8", "π/4", "3π/8", "π/2",
-        "5π/8", "3π/4", "7π/8", "π",
-        "9π/8", "5π/4", "11π/8", "3π/2",
-        "13π/8", "7π/4", "15π/8", "2π"
-    };
-
-    cout << fixed << setprecision(6);
-    cout << "ANGULO\t\tTANGENTE" << endl;
-
-    for (int i = 0; i <= 16; i++)
-    {
-        double x = i * PI / 8.0;
-
-        double sen = seno(x, 10);
-        double coseno = cos(x);   // <-- ya no hay conflicto
-
-        cout << angulos[i] << "\t\t";
-
-        if (fabs(coseno) < 1e-9)
-            cout << "Infinito";
-        else
-            cout << sen / coseno;
-
-        cout << endl;
-    }
-
-    return 0;
-}
-
-
 
 68.- Calcular el número e, considerando los 20 primeros términos: e = 1 + 1 + 1 + 1 + ...	 	  
 
@@ -1637,28 +859,6 @@ INICIO
     Escribir "El valor aproximado de e es: ", e
 
 FIN
-CÓDIGO C++
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-int main()
-{
-    double e = 1.0;
-    double factorial = 1.0;
-
-    for (int i = 1; i <= 19; i++)
-    {
-        factorial *= i;
-        e += 1.0 / factorial;
-    }
-
-    cout << fixed << setprecision(15);
-    cout << "El valor aproximado de e es: " << e << endl;
-
-    return 0;
-}
 
 
 71.- La función de probabilidad binomial es
@@ -1724,77 +924,6 @@ INICIO
 
 FIN
 
-CÓDIGO C++
-
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
-int main()
-{
-    int N;
-    int K;
-    int i;
-
-    double p;
-    double q;
-
-    double factorialN;
-    double factorialK;
-    double factorialNK;
-
-    double combinacion;
-    double probabilidad;
-
-    cout << "Ingrese N: ";
-    cin >> N;
-
-    cout << "Ingrese p: ";
-    cin >> p;
-
-    q = 1 - p;
-
-    factorialN = 1;
-
-    for(i = 1; i <= N; i++)
-    {
-        factorialN = factorialN * i;
-    }
-
-    cout << fixed << setprecision(6);
-
-    cout << endl;
-    cout << "K\tP(K)" << endl;
-
-    for(K = 0; K <= N; K++)
-    {
-        factorialK = 1;
-
-        for(i = 1; i <= K; i++)
-        {
-            factorialK = factorialK * i;
-        }
-
-        factorialNK = 1;
-
-        for(i = 1; i <= (N - K); i++)
-        {
-            factorialNK = factorialNK * i;
-        }
-
-        combinacion = factorialN / (factorialK * factorialNK);
-
-        probabilidad = combinacion * pow(p, K) * pow(q, N - K);
-
-        cout << K << "\t" << probabilidad << endl;
-    }
-
-    return 0;
-}
-
-
 
 
 
@@ -1848,65 +977,7 @@ FinSi
 FinAlgoritmo 
 
 
-CODIGO C++
 
-#include <iostream>
-using namespace std;
-
-int main() {
-    int num, i;
-    bool esPrimo = true;
-
-    cout << "Ingrese un numero natural primo: ";
-    cin >> num;
-
-    if (num < 2) {
-        esPrimo = false;
-    } else {
-        for (i = 2; i < num; i++) {
-            if (num % i == 0) {
-                esPrimo = false;
-            }
-        }
-    }
-
-    if (!esPrimo) {
-        cout << "El numero no es primo";
-    } else {
-
-        int f1 = 1, f2 = 1, f3;
-
-        while (f2 < num) {
-            f3 = f1 + f2;
-            f1 = f2;
-            f2 = f3;
-        }
-
-        if (f2 == num) {
-            f3 = f1 + f2;
-            cout << "El numero es Fibonacci" << endl;
-            cout << "Terna: " << f1 << " " << f2 << " " << f3;
-        } else {
-            cout << "El numero no es Fibonacci";
-        }
-    }
-
-    return 0;
-}
-
-25.- La media armónica de n números enteros está definida por:
-
-
-X h =	n
-
-
-
-Y la media geométrica por:
-
-∑(1/ xi )
-i
-
-Xg =
 
 Hacer un algoritmo para calcular la diferencia entre la media armónica y la media geométrica de M números enteros positivos.
 
@@ -1945,53 +1016,6 @@ inicio
 
 FinAlgoritmo
 
-CODIGO C++
-
-#include <iostream>
-#include <cmath>
-
-using namespace std;
-
-int main() {
-
-    int cantidadNumeros;
-    int contador;
-    int numero;
-
-    double sumaReciprocos;
-    double productoNumeros;
-
-    double mediaArmonica;
-    double mediaGeometrica;
-    double diferenciaMedias;
-
-    cout << "Ingrese la cantidad de numeros positivos: ";
-    cin >> cantidadNumeros;
-
-    sumaReciprocos = 0;
-    productoNumeros = 1;
-
-    for (contador = 1; contador <= cantidadNumeros; contador++) {
-
-        cout << "Ingrese el numero " << contador << ": ";
-        cin >> numero;
-
-        sumaReciprocos = sumaReciprocos + (1.0 / numero);
-        productoNumeros = productoNumeros * numero;
-    }
-
-    mediaArmonica = cantidadNumeros / sumaReciprocos;
-
-    mediaGeometrica = pow(productoNumeros, 1.0 / cantidadNumeros);
-
-    diferenciaMedias = mediaArmonica - mediaGeometrica;
-
-    cout << "\nMedia armonica: " << mediaArmonica << endl;
-    cout << "Media geometrica: " << mediaGeometrica << endl;
-    cout << "Diferencia entre medias: " << diferenciaMedias << endl;
-
-    return 0;
-}
 
 
 
